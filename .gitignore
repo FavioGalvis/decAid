@@ -1,0 +1,28 @@
+# Config files
+
+# Config folders
+nbproject/
+
+# Docbook builds
+
+# Build output
+build/
+upload/
+
+# Untracked plugins
+
+# IDE/Editor temporary files
+*~
+*.swp
+*.bak
+.buildpath
+.cache
+.project
+.settings
+.idea/
+*.kdev4
+
+# IIS7
+
+#libraries
+/dist/
