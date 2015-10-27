@@ -560,6 +560,20 @@ pre code {
 .footer .fa-heart {
   color: #fb866a;
 }
+.box-shadow {
+  background: #fff;
+  -webkit-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.4);
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.4);
+}
+.circle {
+  width: 282px;
+  height: 282px;
+  border-radius: 50%;
+}
+.img-bkg {
+  background-image: url(../images/logo-usb.png);
+}
 /* Extra small devices (phones, less than 768px) */
 @media (max-width: 767px) {
   .header .main-nav button {
@@ -608,20 +622,6 @@ pre code {
   }
   .contact .social-icons a .fa:before {
     font-size: 18px;
-  }
-  .box-shadow {
-    background: #fff;
-    -webkit-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.4);
-    -moz-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.4);
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.4);
-  }
-  .circle {
-    width: 282px;
-    height: 282px;
-    border-radius: 50%;
-  }
-  .img-bkg {
-    background-image: url(../images/logo-usb.png);
   }
 }
 /* Small devices (tablets, 768px and up) */

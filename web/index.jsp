@@ -299,7 +299,7 @@
                 </div><!--//code-block-->
             </div><!--//block-->
             <div class="block">
-                <h3 class="sub-title text-center">Documentacion</h3>
+                <h3 class="sub-title text-center">DOCUMENTACION</h3>
                 <p>La documentación completa y textos están en el repositorio web del projecto alojado gratuitamente por GitHub.</p>
                 <p class="text-center">
                     <a class="btn btn-cta-primary" href="https://github.com/FavioGalvis/decAid" target="_blank">Ir a GitHub</a>
@@ -330,34 +330,34 @@
     <section id="contact" class="contact section has-pattern">
         <div class="container">
             <div class="contact-inner">
-                <h2 class="title  text-center">Contact</h2>
-                <p class="intro  text-center">I hope you find this Bootstrap template useful. <br />Feel free to get in touch if you have any questions or suggestions.</p>
+                <h2 class="title  text-center">Contacto</h2>
+                <p class="intro  text-center">Espero que encuentre este software útil y completo. <br />Contactame para consultar más detalles e inquietudes.</p>
                 <div class="author-message">                      
                     <div class="profile">
                         <img class="img-responsive" src="assets/images/profile_b.png" alt="" />
                     </div><!--//profile-->
                     <div class="speech-bubble">
-                        <h3 class="sub-title">Want to get more freebies in the future?</h3>
-                        <p>I tweet about #UX and #webdev related resources/content at <a href="https://twitter.com/3rdwave_themes" target="_blank">@3rdwave_themes</a> 
-                        <p>If you like what I do, you can follow me on twitter and I will keep you informed about my next free template there :)</p>
-                        <p><strong>[Tip for developers]:</strong> If you take on freelance work you can put a tailored message here about your availability to attract potential clients. Be creative and good luck!</p> 
+                        <h3 class="sub-title">Quieres hacerme una pregunta sobre el projecto?</h3>
+                        <p>Soy estudiante de la facultad de Ingenierías y desarrollo contenido en <a href="https://github.com/FavioGalvis" target="_blank">GitHub</a></p>
+                        <p>Si te gusta mi trabajo puedes seguirme  y apoyarme con un comentario o una crítica sobre mi trabajo :)</p>
+                        <p><strong>[Tip]:</strong> Se Creativo!</p> 
                         <div class="source">
-                            <span class="name"><a href="https://twitter.com/3rdwave_themes" target="_blank">Favio Galvis</a></span>
+                            <span class="name"><a href="https://twitter.com/favioagg" target="_blank">Favio Galvis</a></span>
                             <br />
-                            <span class="title">UX/UI Designer</span>
+                            <span class="title">Estudiante de Ingeniería de Sistemas</span>
                         </div><!--//source-->
                     </div><!--//speech-bubble-->                        
                 </div><!--//author-message-->
                 <div class="clearfix"></div>
                 <div class="info text-center">
-                    <h4 class="sub-title">Get Connected</h4>
+                    <h4 class="sub-title">Conéctate</h4>
                     <ul class="social-icons list-inline">
-                        <li><a href="https://twitter.com/3rdwave_themes" target="_blank"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="https://www.facebook.com/3rdwavethemes" target="_blank"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="https://www.linkedin.com/in/xiaoying"><i class="fa fa-linkedin"></i></a></li>
-                        <li><a href="http://instagram.com/xyriley"><i class="fa fa-instagram"></i></a></li>  
-                        <li><a href="https://dribbble.com/Xiaoying"><i class="fa fa-dribbble"></i></a></li>   
-                        <li class="last"><a href="mailto: hello@3rdwavemedia.com"><i class="fa fa-envelope"></i></a></li>              
+                        <li><a href="https://twitter.com/favioagg" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="https://www.facebook.com/arthu_mc_claude" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="https://www.linkedin.com/in/favioagg"><i class="fa fa-linkedin"></i></a></li>
+                        <li><a href="http://instagram.com/favioagg"><i class="fa fa-instagram"></i></a></li>  
+                        <li><a href="https://dribbble.com/favioagg"><i class="fa fa-dribbble"></i></a></li>   
+                        <li class="last"><a href="mailto:favio.agg@gmail.com"><i class="fa fa-envelope"></i></a></li>              
                     </ul>
                 </div><!--//info-->
             </div><!--//contact-inner-->
@@ -367,7 +367,7 @@
     <!-- ******FOOTER****** --> 
     <footer class="footer">
         <div class="container text-center">
-            <small class="copyright">Designed by <i class="fa fa-rebel"></i> <a href="mailto:favio.agg@gmail.com" target="_blank">Favio Galvis</a> for developers</small>
+            <small class="copyright">Diseñado por <i class="fa fa-rebel"></i> <a href="mailto:favio.agg@gmail.com" target="_blank">Favio Galvis</a> para el mundo.</small>
         </div><!--//container-->
     </footer><!--//footer-->
      
