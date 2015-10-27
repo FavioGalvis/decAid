@@ -188,15 +188,15 @@
     <!-- ******FEATURES****** --> 
     <section id="features" class="features section">
         <div class="container text-center">
-            <h2 class="title">Features</h2>
+            <h2 class="title">Funciones</h2>
             <ul class="feature-list list-unstyled">
-                <li><i class="fa fa-check"></i> Fully responsive</li>
+                <li><i class="fa fa-check"></i> Web Responsiva</li>
                 <li><i class="fa fa-check"></i> HTML5 + CSS3</li>
-                <li><i class="fa fa-check"></i> Built on <a href="http://getbootstrap.com/" target="_blank">Bootstrap 3.3</a></li>
-                <li><i class="fa fa-check"></i> 400+ FontAwesome icons</li>
-                <li><i class="fa fa-check"></i> 4 colour schemes</li>
-                <li><i class="fa fa-check"></i> LESS files included</li>
-                <li><i class="fa fa-check"></i> Compatible with all modern browsers</li>
+                <li><i class="fa fa-check"></i> Framework en <a href="http://getbootstrap.com/" target="_blank">Bootstrap</a> y <a href="http://fortawesome.github.io/" target="_blank">FontAwesome</a></li>
+                <li><i class="fa fa-check"></i> Java + JavaScript + JSP</li>
+                <li><i class="fa fa-check"></i> Facilmente Editable</li>
+                <li><i class="fa fa-check"></i> Buena documentación y facilidad de lectura</li>
+                <li><i class="fa fa-check"></i> Open Source</li>
             </ul>
         </div><!--//container-->
     </section><!--//features-->
@@ -205,70 +205,104 @@
     <section id="docs" class="docs section">
         <div class="container">
             <div class="docs-inner">
-            <h2 class="title text-center">Get Started</h2>            
+            <h2 class="title text-center">Como Funciona y Documentacion</h2>            
             <div class="block">
-                <h3 class="sub-title text-center">HTML</h3>
-                <p><a href="http://prismjs.com/" target="_blank">PrismJS</a> is used as the syntax highlighter here.</p>
-                <p>Below are the details of the custom PrismJS build used in this template. You can <a href="http://prismjs.com/download.html" target="_blank">build your own version</a> via their website should you need to.</p>
-                <ul class="list-unstyled">
-                    <li><strong>Compression level:</strong> Minified</li>
-                    <li><strong>Theme:</strong> Okaidia</li>
-                    <li><strong>Languages:</strong> Markup, CSS, C-like, JavaScript, PHP and Python</li>
-                </ul>
-                <div class="code-block">
-                    <!--//Use Prismjs - http://prismjs.com/index.html#basic-usage -->
-                    <pre><code class="language-markup">
-    &ltp class="my-style"&gt
-      Hello World!
-    &lt/p&gt
-                     </code></pre>
-                </div><!--//code-block-->
-            </div><!--//block-->
-            
-            <div class="block">
-                <h3 class="sub-title text-center">CSS</h3>
-                <p>Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus.</p>
-                
+                <h3 class="sub-title text-center">CODIGO</h3>
+                <p>Separamos en tópicos este software, el sitio web, el servidor, la logica y los estilos gráficos.</p>
+                <h3 class="sub-title text-center">JAVA</h3>
+                <p><a href="https://www.java.com/" target="_blank">Java</a> es usado como lenguaje lógico para la construcción del software, todas las clases, variables, arreglos, ciclos y operaciones estan hechas en Java y por tanto incluidas en clases específicas para tal propósito siguiendo el MER.</p>
                 <div class="code-block">
                     <!--//Use Prismjs - http://prismjs.com/index.html#basic-usage -->
                     <pre>
-    <code class="language-css">
-    /*   
-     * Template Name: devAid - Responsive Website Template for developers
-     * Version: 1.0
-     * Author: Xiaoying Riley at 3rd Wave Media
-     * Website: http://themes.3rdwavemedia.com/
-     * Twitter: @3rdwave_themes
+<code class="language-javascript">
+    /*
+    * @pakage Principal
+    * @author FGALVIS
+    * @version 1.0.36 27/10/2015
+    * @since 1.0
     */
-    body {
-      font-family: 'Lato', arial, sans-serif;
-      color: #444444;
-      font-size: 16px;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
+    @WebServlet("/myClass_MainC.java")
+    public class myClass_MainC extends HttpServlet {
+        private Object pair;
+
+        @Override
+        protected void doPost (HttpServletRequest request, 
+                               HttpServletResponse response)
+                               throws ServletException, IOException {
+        }
     }
-    </code></pre>
+</code>
+                    </pre>
+                </div><!--//code-block-->
+            </div><!--//block-->
+            <div class="block">
+                <h3 class="sub-title text-center">HTML5+JSP</h3>
+                <p><a href="https://www.w3.org/TR/html5/" target="_blank">HTML5</a> + <a href="http://www.oracle.com/technetwork/java/javaee/jsp/index.html" target="_blank">JSP</a> tendrá la cosntrucción del sitio web a traves de la conexión con la sesion Java del Servlet y interpretada por JSP para la construcción dinámica de las páginas.</p>
+                <div class="code-block">
+                    <!--//Use Prismjs - http://prismjs.com/index.html#basic-usage -->
+                    <pre>
+<code class="language-markup">
+    &lt%-- 
+        Document   : index
+        Created on : 23/10/2015, 03:51:22 PM
+        Author     : FGALVIS
+    --%&gt
+    &lt%@page contentType="text/html" pageEncoding="UTF-8"%&gt
+    &lt!DOCTYPE html&gt
+    &lt!--[if IE 8]&gt &lthtml lang="en" class="ie8"&gt &lt![endif]--&gt  
+    &lt!--[if IE 9]&gt &lthtml lang="en" class="ie9"&gt &lt![endif]--&gt  
+    &lt!--[if !IE]&gt&lt!--&gt &lthtml lang="en"&gt &lt![endif]--&gt  
+    &lthead&gt
+        &lttitle&gtdecAid - Estadisticas para Decanatura&lt/title&gt
+        &lt!-- Meta --&gt
+        &ltmeta charset="utf-8"&gt
+        &ltmeta http-equiv="X-UA-Compatible" content="IE=edge"&gt
+        &ltmeta name="viewport" content="width=device-width, initial-scale=1.0"&gt
+    &lt/head&gt
+    &ltbody&gt
+</code>
+                    </pre>
                 </div><!--//code-block-->
             </div><!--//block-->
             
             <div class="block">
-                <h3 class="sub-title text-center">JavaScript</h3>
-                <p>Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Lorem ipsum dolor sit amet, consectetuer adipiscing elit ligula eget dolor.</p>
+                <h3 class="sub-title text-center">CSS3</h3>
+                <p><a href="http://www.w3.org/Style/CSS/" target="_blank">CSS3</a> como marco de trabajo con los plugins de Bootstrap y FontAwesome y sus complementos en JavaScript para el entorno gráfico y Frontend así como para la compatibilidad de multiples viewports.</p>
                 <div class="code-block">
-                    <pre><code class="language-javascript">
-    if( awesome ){
-        console.log('This is Awesome');
-    }else{
-        $('body').addClass('give-me-awesome');
+                    <pre>
+<code class="language-css">
+    /*   
+    * Name: decAid
+    * Version: 1.0
+    * Author: FGALVIS
+    * Twitter: @favioagg
+    */
+    /* Default */
+    body {
+        font-family: 'Lato', arial, sans-serif;
+        color: #444444;
+        font-size: 16px;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
     }
-                    </code></pre>
+</code>
+                    </pre>
                 </div><!--//code-block-->
-            </div><!--//block-->   
+            </div><!--//block-->
             <div class="block">
-                <h3 class="sub-title text-center">Full Documentation</h3>
-                <p>If your documentation is very long you can host the full docs page (including FAQ etc) on GitHub and provide a Call to Action button below to direct users there.</p>
+                <h3 class="sub-title text-center">SERVIDOR</h3>
+                <p><a href="http://tomcat.apache.org/" target="_blank">TOMCAT + Apache</a> es el servidor para el montaje e implementacion de la solucion, a traves del stack de XAMPP que realiza una configuracion minimalistica y rapida.</p>
+                <div class="code-block">
+                    <pre>
+                        <img class="img-responsive img-rounded" src="assets/images/server.png" alt>
+                    </pre>
+                </div><!--//code-block-->
+            </div><!--//block-->
+            <div class="block">
+                <h3 class="sub-title text-center">Documentacion</h3>
+                <p>La documentación completa y textos están en el repositorio web del projecto alojado gratuitamente por GitHub.</p>
                 <p class="text-center">
-                    <a class="btn btn-cta-primary" href="https://github.com/twbs/bootstrap" target="_blank">More on GitHub</a>
+                    <a class="btn btn-cta-primary" href="https://github.com/FavioGalvis/decAid" target="_blank">Ir a GitHub</a>
                 </p>
             </div><!--//block-->
             
@@ -280,10 +314,13 @@
     <section id="license" class="license section">
         <div class="container">
             <div class="license-inner">
-            <h2 class="title text-center">License</h2>
+            <h2 class="title text-center">Licencia</h2>
                 <div class="info">
-                    <p>This Bootstrap theme is made by UX designer <a href="https://www.linkedin.com/in/xiaoying" target="_blank">Xiaoying Riley</a> at 3rd Wave Media for developers and is <strong>100% FREE</strong> under the <a href="https://creativecommons.org/licenses/by/3.0/" target="_blank">Creative Commons Attribution 3.0 License (CC BY 3.0)</a></p>
-                    <p><strong>[Tip for developers]:</strong> If your project is open source, you might want to put a <a href="https://www.paypal.com/us/cgi-bin/?cmd=_donate-intro-outside" target="_blank">PayPal "Donate" button</a> below so your users can express their gratitude. If your project is commercial, you can put a <a href="https://www.paypal.com/us/cgi-bin/webscr?cmd=_singleitem-intro-outside" target="_blank">PayPal "Buy Now" button</a> instead.</p>
+                    <p>Este software esta hecho en NetBeans por  <a href="mailto:favio.agg@gmail.com" target="_blank">Favio Galvis</a> como projecto final de clase, <strong>100% Libre</strong> bajo la licencia de <a href="https://www.gnu.org/licenses/gpl-2.0.html" target="_blank">GNU General Public License, version 2 (GPL 2.0)</a></p>
+                    <p><strong>Profesor:</strong> Doc. Ing. Juan Rua</p>
+                    <p><strong>Materia:</strong> Algoritmos y Programacion I</p>
+                    <p class="text-center"><strong>Universidad Simón Bolívar</strong></p>
+                    <div class="center-block circle box-shadow img-bkg"></div>
                 </div><!--//info-->
             </div><!--//license-inner-->
         </div><!--//container-->
