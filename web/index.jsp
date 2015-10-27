@@ -10,14 +10,16 @@
 <!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->  
 <!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->  
 <head>
-    <title>Free Bootstrap Theme for Developers</title>
+    <title>decAid - Estadisticas para Decanatura</title>
     <!-- Meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">    
-    <link rel="shortcut icon" href="favicon.ico">  
+    <!-- Start: favicon scripts for multiplataform -->
+    <link rel="shortcut icon" href="favicon.png">
+    <!-- End: favicon scripts for multiplataform -->
     <link href='http://fonts.googleapis.com/css?family=Lato:300,400,300italic,400italic' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'> 
     <!-- Global CSS -->
@@ -51,7 +53,7 @@
         <div class="container">            
             <h1 class="logo pull-left">
                 <a class="scrollto" href="#promo">
-                    <span class="logo-title">devAid</span>
+                    <span class="logo-title">decAid</span>
                 </a>
             </h1><!--//logo-->              
             <nav id="main-nav" class="main-nav navbar-right" role="navigation">
@@ -65,12 +67,12 @@
                 </div><!--//navbar-header-->            
                 <div class="navbar-collapse collapse" id="navbar-collapse">
                     <ul class="nav navbar-nav">
-                        <li class="active nav-item sr-only"><a class="scrollto" href="#promo">Home</a></li>
-                        <li class="nav-item"><a class="scrollto" href="#about">About</a></li>
-                        <li class="nav-item"><a class="scrollto" href="#features">Features</a></li>
-                        <li class="nav-item"><a class="scrollto" href="#docs">Docs</a></li>
-                        <li class="nav-item"><a class="scrollto" href="#license">License</a></li>                        
-                        <li class="nav-item last"><a class="scrollto" href="#contact">Contact</a></li>
+                        <li class="active nav-item sr-only"><a class="scrollto" href="#promo">Inicio</a></li>
+                        <li class="nav-item"><a class="scrollto" href="#about">Acerca de</a></li>
+                        <li class="nav-item"><a class="scrollto" href="#features">Funciones</a></li>
+                        <li class="nav-item"><a class="scrollto" href="#docs">Documentacion</a></li>
+                        <li class="nav-item"><a class="scrollto" href="#license">Licencia</a></li>                        
+                        <li class="nav-item last"><a class="scrollto" href="#contact">Contacto</a></li>
                     </ul><!--//nav-->
                 </div><!--//navabr-collapse-->
             </nav><!--//main-nav-->
@@ -80,35 +82,35 @@
     <!-- ******PROMO****** -->
     <section id="promo" class="promo section offset-header">
         <div class="container text-center">
-            <h2 class="title">dev<span class="highlight">Aid</span></h2>
-            <p class="intro">A free mobile-friendly Bootstrap theme designed to help developers
-promote their personal projects</p>
+            <h2 class="title">dec<span class="highlight">Aid</span></h2>
+            <p class="intro">Software para el análisis estadístico de estudiantes de Ing. de Sistemas de la 
+                Universidad Simon Bolivar</p>
             <div class="btns">
-                <a class="btn btn-cta-secondary" href="http://themes.3rdwavemedia.com/" target="_blank">Demo</a>
-                <a class="btn btn-cta-primary" href="http://themes.3rdwavemedia.com/website-templates/devaid-free-bootstrap-theme-developers/" target="_blank">Download</a>
+                <a class="btn btn-cta-secondary" href="/" target="_blank">Iniciar</a>
+                <a class="btn btn-cta-primary" href="https://github.com/FavioGalvis/decAid/archive/master.zip" target="_blank">Fuentes</a>
             </div>
             <ul class="meta list-inline">
-                <li><a href="#" target="_blank">View on GitHub</a></li>
-                <li><a href="https://github.com/twbs/bootstrap" target="_blank">Full Documentation</a></li>
-                <li>Created by: <a href="http://themes.3rdwavemedia.com/" target="_blank">Xiaoying Riley</a> at 3rd Wave Media</li>
+                <li><a href="https://github.com/FavioGalvis/decAid" target="_blank">Ver en GitHub</a></li>
+                <li><a href="/" target="_blank">Documentation completa</a></li>
+                <li>Creado por: <a href="mailto:favio.agg@gmail.com" target="_blank">Favio Galvis</a> en USB-CO</li>
             </ul><!--//meta-->
         </div><!--//container-->
         <div class="social-media">
             <div class="social-media-inner container text-center">
                 <ul class="list-inline">
-                    <li class="twitter-follow"><a href="https://twitter.com/3rdwave_themes" class="twitter-follow-button" data-show-count="false">Follow @3rdwave_themes</a>
+                    <li class="twitter-follow"><a href="https://twitter.com/favioagg" class="twitter-follow-button" data-show-count="false">Follow @FavioGalvis</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
                     </li><!--//twitter-follow-->
                     <li class="twitter-tweet">
-                        <a href="https://twitter.com/share" class="twitter-share-button" data-via="3rdwave_themes" data-hashtags="bootstrap">Tweet</a>
+                        <a href="https://twitter.com/share" class="twitter-share-button" data-via="favioagg" data-hashtags="decAid">Tweet</a>
     <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
                     </li><!--//twitter-tweet-->
                     <li class="facebook-like">
                          <div class="fb-like" data-href="http://themes.3rdwavemedia.com/" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true"></div>
                     </li><!--//facebook-like-->
                     <!--// Generate github buttons: https://github.com/mdo/github-buttons -->
-                    <li class="github-star"><iframe src="http://ghbtns.com/github-btn.html?user=mdo&repo=github-buttons&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="110" height="20"></iframe></li>
-                    <li class="github-fork"><iframe src="http://ghbtns.com/github-btn.html?user=mdo&repo=github-buttons&type=fork" allowtransparency="true" frameborder="0" scrolling="0" width="53" height="20"></iframe></li>
+                    <li class="github-star"><iframe src="http://ghbtns.com/github-btn.html?user=FavioGalvis&repo=decAid&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="110" height="20"></iframe></li>
+                    <li class="github-fork"><iframe src="http://ghbtns.com/github-btn.html?user=FavioGalvis&repo=decAid&type=fork" allowtransparency="true" frameborder="0" scrolling="0" width="53" height="20"></iframe></li>
                     <!--//
                     <li class="github-follow"><iframe src="http://ghbtns.com/github-btn.html?user=mdo&type=follow&count=true"
   allowtransparency="true" frameborder="0" scrolling="0" width="165" height="20"></iframe></li>
@@ -121,25 +123,25 @@ promote their personal projects</p>
     <!-- ******ABOUT****** --> 
     <section id="about" class="about section">
         <div class="container">
-            <h2 class="title text-center">What is devAid?</h2>
-            <p class="intro text-center">Explain your project in detail. Ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.</p>
+            <h2 class="title text-center">Que es decAid?</h2>
+            <p class="intro text-center">Decanature Aid - ó más corto decAid - es un software para el análisis estadístico de las calificaciones, promedios, cortes y desempeños de los estudiantes de la carrera de Ing. de Sistemas por medio de reportes infográficos y modernos que muestran la información en tiempo real y de manera expedita. Este proyecto fue creado en el marco del Proyecto Final de Aula para la materia de Algoritmos y Programación I del Doc. Ing. Juan Rua.</p>
             <div class="row">
                 <div class="item col-md-4 col-sm-6 col-xs-12">
                     <div class="icon-holder">
-                        <i class="fa fa-heart"></i>
+                        <i class="fa fa-copyright"></i>
                     </div>
                     <div class="content">
-                        <h3 class="sub-title">Designed for developers</h3>
-                        <p>Outline a benefit here. Tell users what your plugin/software can do for them. You can change the icon above to any of the 400+ <a href="http://fortawesome.github.io/Font-Awesome/icons/" target="_blank">FontAwesome</a> icons available.</p>
+                        <h3 class="sub-title">Diseñado por desarrollador</h3>
+                        <p>Diseño exclusivo de mi autoría. Asi demostramos que los estudiantes de Ing. también poseemos esa chispa creativa que tanto nos falta.</p>
                     </div><!--//content-->
                 </div><!--//item-->
                 <div class="item col-md-4 col-sm-6 col-xs-12">
                     <div class="icon-holder">
-                        <i class="fa fa-clock-o"></i>
+                        <i class="fa fa-code"></i>
                     </div>
                     <div class="content">
-                        <h3 class="sub-title">Time saver</h3>
-                        <p>Outline a benefit here. Tell users what your plugin/software can do for them. You can change the icon above to any of the 400+ <a href="http://fortawesome.github.io/Font-Awesome/icons/" target="_blank">FontAwesome</a> icons available.</p>
+                        <h3 class="sub-title">Framework</h3>
+                        <p>Java, JSP y HTML5 en el código, Marco de trabajo en CSS y JS de <a href="http://getbootstrap.com/" target="_blank">Bootstrap</a>, <a href="http://fortawesome.github.io/" target="_blank">FontAwesome</a> y servidor <a href="http://tomcat.apache.org/" target="_blank">Tomcat</a> con proyección a BD MySQL en un futuro.</p>
                     </div><!--//content-->
                 </div><!--//item-->
                 <div class="item col-md-4 col-sm-6 col-xs-12">
@@ -147,8 +149,8 @@ promote their personal projects</p>
                         <i class="fa fa-crosshairs"></i>
                     </div>
                     <div class="content">
-                        <h3 class="sub-title">UX-centred</h3>
-                        <p>Outline a benefit here. Tell users what your plugin/software can do for them. You can change the icon above to any of the 400+ <a href="http://fortawesome.github.io/Font-Awesome/icons/" target="_blank">FontAwesome</a> icons available.</p>
+                        <h3 class="sub-title">Centrado en Soluciones</h3>
+                        <p>La solución se desarrollo para cumplir los requerimientos del proyecto final de aula de 34 puntos propuesto por el profesor. Encontrará valores agregados en la documentación.</p>
                     </div><!--//content-->
                 </div><!--//item-->           
                 <div class="clearfix visible-md"></div>    
@@ -157,26 +159,26 @@ promote their personal projects</p>
                         <i class="fa fa-tablet"></i>
                     </div>
                     <div class="content">
-                        <h3 class="sub-title">Mobile-friendly</h3>
-                        <p>Outline a benefit here. Tell users what your plugin/software can do for them. You can change the icon above to any of the 400+ <a href="http://fortawesome.github.io/Font-Awesome/icons/" target="_blank">FontAwesome</a> icons available.</p>
+                        <h3 class="sub-title">Muti-Plataforma</h3>
+                        <p>El uso de un marco de trabajo Mobile-Friendly hace la página flexible a todas las interfaces y viewports. Mas información sobre la versión móbil en la documentación.</p>
                     </div><!--//content-->
                 </div><!--//item-->                
                 <div class="item col-md-4 col-sm-6 col-xs-12">
                     <div class="icon-holder">
-                        <i class="fa fa-code"></i>
+                        <i class="fa fa-puzzle-piece"></i>
                     </div>
                     <div class="content">
-                        <h3 class="sub-title">Easy to customise</h3>
-                        <p>Outline a benefit here. Tell users what your plugin/software can do for them. You can change the icon above to any of the 400+ <a href="http://fortawesome.github.io/Font-Awesome/icons/" target="_blank">FontAwesome</a> icons available.</p>
+                        <h3 class="sub-title">Facilmente Modificable</h3>
+                        <p>Extensiva documentación del proyecto y del código construido para facilitar el reuso del mismo, el aprendizaje continuo y la lectura. Documentación autogenerada por <a href="http://www.oracle.com/technetwork/articles/java/index-jsp-135444.html" target="_blank">Javadoc</a>.</p>
                     </div><!--//content-->
                 </div><!--//item-->
                 <div class="item col-md-4 col-sm-6 col-xs-12">
                     <div class="icon-holder">
-                        <i class="fa fa-coffee"></i>
+                        <i class="fa fa-users"></i>
                     </div>
                     <div class="content">
-                        <h3 class="sub-title">LESS files included</h3>
-                        <p>Outline a benefit here. Tell users what your plugin/software can do for them. You can change the icon above to any of the 400+ <a href="http://fortawesome.github.io/Font-Awesome/icons/" target="_blank">FontAwesome</a> icons available.</p>
+                        <h3 class="sub-title">Open Source</h3>
+                        <p>Projecto definido como Open Source de licencia <a href="https://www.gnu.org/licenses/gpl-2.0.html" target="_blank">GNU-GPL</a> para el trabajo y desarrollo continuo del mismo sin limitantes de copyrightFontAwesome. Repositorio en <a href="https://github.com/FavioGalvis/decAid" target="_blank">GitHub</a>.
                     </div><!--//content-->
                 </div><!--//item-->               
             </div><!--//row-->            
@@ -283,24 +285,6 @@ promote their personal projects</p>
                     <p>This Bootstrap theme is made by UX designer <a href="https://www.linkedin.com/in/xiaoying" target="_blank">Xiaoying Riley</a> at 3rd Wave Media for developers and is <strong>100% FREE</strong> under the <a href="https://creativecommons.org/licenses/by/3.0/" target="_blank">Creative Commons Attribution 3.0 License (CC BY 3.0)</a></p>
                     <p><strong>[Tip for developers]:</strong> If your project is open source, you might want to put a <a href="https://www.paypal.com/us/cgi-bin/?cmd=_donate-intro-outside" target="_blank">PayPal "Donate" button</a> below so your users can express their gratitude. If your project is commercial, you can put a <a href="https://www.paypal.com/us/cgi-bin/webscr?cmd=_singleitem-intro-outside" target="_blank">PayPal "Buy Now" button</a> instead.</p>
                 </div><!--//info-->
-                <div class="cta-container">
-                    <div class="speech-bubble">                    
-                        <p class="intro">If you are feeling generous and want to show your support to Xiaoying, you can buy her a beer or coffee via the PayPal donate button below. :)</p>
-                        <div class="icon-holder  text-center"><i class="fa fa-smile-o"></i></div>
-                    </div><!--//speech-bubble-->
-                    <div class="btn-container  text-center">
-                        <!--//You need to generate your own PayPal button - https://www.paypal.com/us/cgi-bin/?cmd=_donate-intro-outside -->         
-                        <!--PayPal generated code starts-->
-                        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-                        <input type="hidden" name="cmd" value="_s-xclick">
-                        <input type="hidden" name="hosted_button_id" value="Y46LJNXGAVVWW">
-                        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-                        <img alt="" border="0" src="https://www.paypalobjects.com/en_GB/i/scr/pixel.gif" width="1" height="1">
-                        </form>
-                        <!--//PayPal generated code ends-->                    
-                        
-                    </div><!--//btn-container-->
-                </div><!--//cta-container-->
             </div><!--//license-inner-->
         </div><!--//container-->
     </section><!--//how-->
@@ -313,7 +297,7 @@ promote their personal projects</p>
                 <p class="intro  text-center">I hope you find this Bootstrap template useful. <br />Feel free to get in touch if you have any questions or suggestions.</p>
                 <div class="author-message">                      
                     <div class="profile">
-                        <img class="img-responsive" src="assets/images/profile.png" alt="" />
+                        <img class="img-responsive" src="assets/images/profile_b.png" alt="" />
                     </div><!--//profile-->
                     <div class="speech-bubble">
                         <h3 class="sub-title">Want to get more freebies in the future?</h3>
@@ -321,7 +305,7 @@ promote their personal projects</p>
                         <p>If you like what I do, you can follow me on twitter and I will keep you informed about my next free template there :)</p>
                         <p><strong>[Tip for developers]:</strong> If you take on freelance work you can put a tailored message here about your availability to attract potential clients. Be creative and good luck!</p> 
                         <div class="source">
-                            <span class="name"><a href="https://twitter.com/3rdwave_themes" target="_blank">Xiaoying Riley</a></span>
+                            <span class="name"><a href="https://twitter.com/3rdwave_themes" target="_blank">Favio Galvis</a></span>
                             <br />
                             <span class="title">UX/UI Designer</span>
                         </div><!--//source-->
@@ -346,7 +330,7 @@ promote their personal projects</p>
     <!-- ******FOOTER****** --> 
     <footer class="footer">
         <div class="container text-center">
-            <small class="copyright">Designed with <i class="fa fa-heart"></i> by <a href="http://themes.3rdwavemedia.com" target="_blank">Xiaoying Riley</a> for developers</small>
+            <small class="copyright">Designed by <i class="fa fa-rebel"></i> <a href="mailto:favio.agg@gmail.com" target="_blank">Favio Galvis</a> for developers</small>
         </div><!--//container-->
     </footer><!--//footer-->
      
