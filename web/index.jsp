@@ -10,6 +10,7 @@
 <!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->  
 <!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->  
 <head>
+    <%@ page import="java.util.List" %>
     <title>decAid - Estadisticas para Decanatura</title>
     <!-- Meta -->
     <meta charset="utf-8">
@@ -75,8 +76,16 @@
             <h2 class="title">dec<span class="highlight">Aid</span></h2>
             <p class="intro">Software para el análisis estadístico de estudiantes de Ing. de Sistemas de la 
                 Universidad Simon Bolivar</p>
+            <%if((request.getAttribute("fv_return_path"))!=null){%>
+                        <h3>Impresion de la matriz Anterior: <%out.println(request.getAttribute("b"));%></h3>
+            <%}%>
             <div class="btns">
-                <a class="btn btn-cta-secondary" href="/" target="_blank">Iniciar</a>
+                <a class="btn btn-cta-secondary">
+                <form method="POST" action="start">
+                    <input type="hidden" name="b" value="${b}">
+                    <input class="btn-clear" type="submit" name="start" value="INICIAR">
+                </form>
+                </a>
                 <a class="btn btn-cta-primary" href="https://github.com/FavioGalvis/decAid/archive/master.zip" target="_blank">Fuentes</a>
             </div>
             <ul class="meta list-inline">

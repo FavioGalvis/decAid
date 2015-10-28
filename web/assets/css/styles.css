@@ -574,6 +574,12 @@ pre code {
 .img-bkg {
   background-image: url(../images/logo-usb.png);
 }
+.btn-clear {
+  border: 0;
+  background: 0;
+  padding: 8px 30px;
+  margin: -8px -30px
+}
 /* Extra small devices (phones, less than 768px) */
 @media (max-width: 767px) {
   .header .main-nav button {

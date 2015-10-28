@@ -2,6 +2,7 @@
 
 # Config folders
 nbproject/
+license/
 
 # Docbook builds
 
@@ -20,6 +21,7 @@ upload/
 .project
 .settings
 .idea/
+LICENCE.txt
 *.kdev4
 
 # IIS7
