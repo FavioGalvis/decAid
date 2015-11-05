@@ -18,77 +18,285 @@
 package fp_java_package;
 
 /**
- *
+ * Clase para la creacion de las variables
+ * del pensum y asignaturas.
  * @author FGALVIS
  */
 public class Fc_pensum {
     
-    public int fv_codigo_asig = 0;
-    public int fv_prereq_asig = 0;
-    public int fv_posreq_asig = 0;
-    public int fv_area = 0;
-    public int fv_semestre = 0;
-    protected int[][] fv_pensum = new int[5][58];
+    int fv_codigo_asig = 0;
+    String fv_nombre_asig = null;
+    String fv_descripcion_asig = null;
+    String fv_opcional_asig = null;
+    String fv_prereq_asig = null;
+    int fv_creditos_asig = 0;
+    int fv_tipo_asig = 0;
+    int fv_HT_asig = 0;
+    int fv_HP_asig = 0;
+    int fv_area_asig = 0;
+    int fv_semestre_asig = 0;
+    /* 
+     * @see int fv_pensum
+     * Variable de almacenamiento del pensum en malla grafica.
+     * array [variables][N asignaturas]
+     * array [0,1,2,3,4,5,6,7]={codigo_asig,creditos_asig,tipo_asig,HT_asig,
+     *                          HP_asig,HI_asig,area_asig,semestre_asig}
+     */
+    int[][] fv_pensum = new int[8][57];
+    /* 
+     * @see String fv_pensum_desc
+     * Variable de almacenamiento de datos adicionales del pensum.
+     * array [String][N asignaturas]
+     * array [0,1,2,3]={nombre_asig,descripcion_asig,prereq_asig,opcional}
+     */
+    String[][] fv_pensum_desc = new String[4][57];
     
+    /** 
+     * Metodo constructor
+     * @param null No posee entrada de parametros ya que las vars son estaticas
+     */
     public Fc_pensum ( ){      
-        //Pos [0][] = Codigo de Asignatura segun malla grafica
-        for (int i=0;i<58;i++) {
+        
+        for (int i=0;i<57;i++) {
+            //Pos [0][] = Codigo de Asignatura segun malla grafica
+            // Tener presente que el codigo de la asignatura inicia en 1 (no en 0)
             this.fv_pensum[0][i] = i+1;
-            if(i>=0 || i<7){
-                //Pos [1][] = Prerequisitos, en el caso del primer semestre es 0
-                this.fv_pensum[1][i] = 0;
-                //Pos [4][] = Semestre, en el caso del primer semestre es 1
-                this.fv_pensum[4][i] = 1;
-            }else if(i>=7 || i<13){
-                //Pos [4][] = Semestre, en el caso del segundo semestre es 2
-                this.fv_pensum[4][i] = 2;
-            }else if(i>=13 || i<19){                
-                //Pos [4][] = Semestre, en el caso del tercer semestre es 3
-                this.fv_pensum[4][i] = 3;
-            }else if(i>=19 || i<25){               
-                //Pos [4][] = Semestre, en el caso del cuarto semestre es 4
-                this.fv_pensum[4][i] = 4;
-            }else if(i>=25 || i<30){                
-                //Pos [4][] = Semestre, en el caso del quinto semestre es 5
-                this.fv_pensum[4][i] = 5;
-            }else if(i>=30 || i<36){                
-                //Pos [4][] = Semestre, en el caso del sexto semestre es 6
-                this.fv_pensum[4][i] = 6;
-            }else if(i>=36 || i<43){                
-                //Pos [4][] = Semestre, en el caso del septimo semestre es 7
-                this.fv_pensum[4][i] = 7;
-            }else if(i>=43 || i<49){                
-                //Pos [4][] = Semestre, en el caso del octavo semestre es 8
-                this.fv_pensum[4][i] = 8;
-            }else if(i>=49 || i<55){                
-                //Pos [4][] = Semestre, en el caso del noveno semestre es 9
-                this.fv_pensum[4][i] = 9;
-            }else if(i>=55 || i<58){                
-                //Pos [4][] = Semestre, en el caso del decimo semestre es 10
-                this.fv_pensum[4][i] = 10;
+            if(i>=0 || i<6){
+                //Pos [7][] = Semestre, en el caso del primer semestre es 1
+                this.fv_pensum[7][i] = 1;
+            }else if(i>=6 || i<12){
+                //Pos [7][] = Semestre, en el caso del segundo semestre es 2
+                this.fv_pensum[7][i] = 2;
+            }else if(i>=12 || i<18){                
+                //Pos [7][] = Semestre, en el caso del tercer semestre es 3
+                this.fv_pensum[7][i] = 3;
+            }else if(i>=18 || i<24){               
+                //Pos [7][] = Semestre, en el caso del cuarto semestre es 4
+                this.fv_pensum[7][i] = 4;
+            }else if(i>=24 || i<29){                
+                //Pos [7][] = Semestre, en el caso del quinto semestre es 5
+                this.fv_pensum[7][i] = 5;
+            }else if(i>=29 || i<35){                
+                //Pos [7][] = Semestre, en el caso del sexto semestre es 6
+                this.fv_pensum[7][i] = 6;
+            }else if(i>=35 || i<42){                
+                //Pos [7][] = Semestre, en el caso del septimo semestre es 7
+                this.fv_pensum[7][i] = 7;
+            }else if(i>=42 || i<48){                
+                //Pos [7][] = Semestre, en el caso del octavo semestre es 8
+                this.fv_pensum[7][i] = 8;
+            }else if(i>=48 || i<54){                
+                //Pos [7][] = Semestre, en el caso del noveno semestre es 9
+                this.fv_pensum[7][i] = 9;
+            }else if(i>=54 || i<57){                
+                //Pos [7][] = Semestre, en el caso del decimo semestre es 10
+                this.fv_pensum[7][i] = 10;
             }
         }
+        //Pos [6][] = Codigo del Area segun malla grafica
         // Inicializacion Area 1 = Matematicas
-        this.fv_pensum[3][0] = 1;
-        this.fv_pensum[3][7] = 1;
-        this.fv_pensum[3][8] = 1;
-        this.fv_pensum[3][13] = 1;
-        this.fv_pensum[3][19] = 1;
-        this.fv_pensum[3][25] = 1;
+        this.fv_pensum[6][0] = 1;
+        this.fv_pensum[6][6] = 1;
+        this.fv_pensum[6][7] = 1;
+        this.fv_pensum[6][12] = 1;
+        this.fv_pensum[6][18] = 1;
+        this.fv_pensum[6][24] = 1;
         // Inicializacion Area 2 = Fisica
-        this.fv_pensum[3][14] = 2;
-        this.fv_pensum[3][20] = 2;
+        this.fv_pensum[6][13] = 2;
+        this.fv_pensum[6][19] = 2;
         // Inicializacion Area 3 = Ciencias Naturales y Estadisticas
-        this.fv_pensum[4][26] = 3;
+        this.fv_pensum[6][25] = 3;
         // Inicializacion Area 4 = Español
-        this.fv_pensum[3][1] = 4;
-        this.fv_pensum[3][9] = 4;
+        this.fv_pensum[6][1] = 4;
+        this.fv_pensum[6][8] = 4;
         // Inicializacion Area 5 = Matematicas Computacionales
-        this.fv_pensum[3][15] = 5;
-        this.fv_pensum[4][30] = 5;
-        this.fv_pensum[4][36] = 5;
+        this.fv_pensum[6][14] = 5;
+        this.fv_pensum[6][29] = 5;
+        this.fv_pensum[6][35] = 5;
         // Inicializacion Area 6 = Interdiciplinaria
-        this.fv_pensum[4][21] = 6;
+        this.fv_pensum[6][20] = 6;
+        this.fv_pensum[6][36] = 6;
+        this.fv_pensum[6][50] = 6;
+        this.fv_pensum[6][55] = 6;
+        // Inicializacion Area 7 = Algoritmia y Programacion
+        this.fv_pensum[6][2] = 7;
+        this.fv_pensum[6][9] = 7;
+        this.fv_pensum[6][15] = 7;
+        this.fv_pensum[6][21] = 7;
+        // Inicializacion Area 8 = Ciencias de la Computacion
+        this.fv_pensum[6][3] = 8;
+        this.fv_pensum[6][26] = 8;
+        this.fv_pensum[6][27] = 8;
+        this.fv_pensum[6][37] = 8;
+        this.fv_pensum[6][38] = 8;
+        // Inicializacion Area 9 = Ingenieria de Software
+        this.fv_pensum[6][30] = 9;
+        this.fv_pensum[6][39] = 9;
+        this.fv_pensum[6][42] = 9;
+        // Inicializacion Area 10 = Arquitectura, Redes y Conectividad
+        this.fv_pensum[6][22] = 10;
+        this.fv_pensum[6][28] = 10;
+        this.fv_pensum[6][31] = 10;
+        this.fv_pensum[6][32] = 10;
+        // Inicializacion Area 11 = Software, Redes y Gestion
+        this.fv_pensum[6][43] = 11;
+        this.fv_pensum[6][44] = 11;
+        this.fv_pensum[6][48] = 11;
+        this.fv_pensum[6][49] = 11;
+        this.fv_pensum[6][54] = 11;
+        // Inicializacion Area 12 = Investigacion Aplicada
+        this.fv_pensum[6][33] = 12;
+        this.fv_pensum[6][40] = 12;
+        this.fv_pensum[6][45] = 12;
+        // Inicializacion Area 13 = Practica de Ingenieria
+        this.fv_pensum[6][51] = 13;
+        this.fv_pensum[6][56] = 13;
+        // Inicializacion Area 14 = Gestion de Proyectos
+        this.fv_pensum[6][34] = 14;
+        this.fv_pensum[6][46] = 14;
+        // Inicializacion Area 15 = Valores y Autodesarrollo
+        this.fv_pensum[6][4] = 15;
+        this.fv_pensum[6][10] = 15;
+        this.fv_pensum[6][16] = 15;
+        this.fv_pensum[6][23] = 15;
+        // Inicializacion Area 16 = Socio-Juridicas y Artisticas
+        this.fv_pensum[6][5] = 16;
+        this.fv_pensum[6][11] = 16;
+        this.fv_pensum[6][17] = 16;
+        this.fv_pensum[6][41] = 16;
+        this.fv_pensum[6][47] = 16;
+        this.fv_pensum[6][52] = 16;
+        this.fv_pensum[6][53] = 16;
         
+        /* 
+         * Creditos de cada Asignatura.
+         * Como no existe relacion directa y constante entre las asignaturas,
+         * las horas teorias y las horas practicas, la inicializacion es manual.
+         */
+        int fvt_creditos[] = new int[]{4,3,4,2,1,2,4,3,3,4,1,1,4,3,3,4,1,2,4,3,3,3,3,1,4,3,3,4,4,3,4,4,4,1,3,3,3,3,3,3,1,2,4,3,3,1,3,2,3,3,3,1,2,2,3,3,7};
+        for(int i=0;i<57;i++){
+            this.fv_pensum[1][i] = fvt_creditos[i];
+        }
+        fvt_creditos = null;
+        
+        /* 
+         * Horas Teoricas de cada Asignatura.
+         * Como no existe relacion directa y constante entre las asignaturas,
+         * las horas teorias y las horas practicas, la inicializacion es manual.
+         */
+        int fvt_ht[] = new int[]{4,3,3,2,1,2,4,3,3,3,1,1,4,4,3,3,1,2,4,4,3,3,3,1,4,3,3,4,4,3,3,3,3,0,3,3,3,3,3,2,0,2,3,2,2,0,3,2,2,3,3,0,2,2,3,3,0};
+        for(int i=0;i<57;i++){
+            this.fv_pensum[3][i] = fvt_ht[i];
+        }
+        fvt_ht = null;
+        
+        /* 
+         * Horas Practicas de cada Asignatura.
+         * Como no existe relacion directa y constante entre las asignaturas,
+         * las horas teorias y las horas practicas, la inicializacion es manual.
+         */
+        int fvt_hp[] = new int[]{0,0,3,0,1,0,0,0,0,3,1,1,0,1,0,3,1,0,0,1,1,0,0,1,0,1,0,3,2,0,3,3,3,2,0,1,1,0,1,2,2,0,3,2,2,2,1,0,2,0,0,3,0,0,0,0,40};
+        for(int i=0;i<57;i++){
+            this.fv_pensum[4][i] = fvt_hp[i];
+            /*
+             * Asignacion de tipo de materia dependiendo de cantida de horas practicas
+             * 1 = Teorica, 2 = Teorico Practica
+             */
+            if ( fvt_hp[i]==0 ){
+                this.fv_pensum[2][i]= 1;
+            } else {
+                this.fv_pensum[2][i]= 2;
+            }
+        }
+        fvt_hp = null;
+        
+        /* 
+         * Nombres de cada Asignatura.
+         */
+        String fvt_nombre[] = new String[]{ "Algebra y Trigonometría",
+                                            "Competencia Comunicativa en Lengua Castellana I",
+                                            "Algoritmia y Programación I",
+                                            "Introducción a la Ingeniería de Sistemas",
+                                            "Crecimiento Intragrupal I",
+                                            "Cátedra Bolivariana",
+                                            "Cálculo Diferencial",
+                                            "Álgebra Lineal",
+                                            "Competencia Comunicativa en Lengua Castellana II",
+                                            "Algoritmia y Programación II",
+                                            "Crecimiento Intragrupal II",
+                                            "Cultura y Deporte",
+                                            "Cálculo Integral",
+                                            "Física Mecánica",
+                                            "Lógica Matemática",
+                                            "Estructura de Datos",
+                                            "Crecimiento Intragrupal III",
+                                            "Educación para la Democracia",
+                                            "Cálculo de Varias Variables",
+                                            "Física Electricidad y Magnetismo",
+                                            "Estadística Descriptiva y Probabilística",
+                                            "Analisis de Algoritmos",
+                                            "Diseño Lógico Digita",
+                                            "Crecimiento Intragrupal IV",
+                                            "Ecuaciones Diferenciales",
+                                            "Física Electricidad y Magnetismo",
+                                            "Estadística Descriptiva y Probabilística",
+                                            "Analisis de Algoritmos",
+                                            "Diseño Lógico Digital",
+                                            "Crecimiento Intragrupal IV",
+                                            "Ecuaciones Diferenciales",
+                                            "Electiva en Ciencias Básicas",
+                                            "Teoría de Sistemas",
+                                            "Bases de Datos",
+                                            "Arquitectura del Computador",
+                                            "Matemáticas Discretas",
+                                            "Ingeniería del Software I",
+                                            "Redes",
+                                            "Sistemas Operativos",
+                                            "Formación Investigativa I",
+                                            "Gestion de Proyectos Informáticos",
+                                            "Análisis Numérico",
+                                            "Investigación de Operaciones",
+                                            "Inteligencia Artificial",
+                                            "Teoría de Compiladores",
+                                            "Ingeniería del Software II",
+                                            "Formación Investigativa II",
+                                            "Electiva de Sociohumanidades I",
+                                            "Ingeniería Web",
+                                            "Electiva Profesional I",
+                                            "Electiva Profesional II",
+                                            "Formación Investigativa III",
+                                            "Matemáticas Financieras",
+                                            "Electiva de Sociohumanidades II",
+                                            "Electiva Profesional III",
+                                            "Electiva Profesional IV",
+                                            "Electiva Profesional Interdisciplinaria I",
+                                            "Soporte de Ingenieria",
+                                            "Electiva de Sociohumanidades III",
+                                            "Etica Profesional",
+                                            "Electiva Profesional V",
+                                            "Electiva Profesional Interdisciplinaria II",
+                                            "Práctica Profesional"};
+        for(int i=0;i<57;i++){
+            this.fv_pensum_desc[0][i] = fvt_nombre[i];
+        }
+        fvt_nombre = null;
+        
+        /* 
+         * Requisitos de cada Asignatura.
+         */
+        String fvt_prereq[] = new String[]{"0","0","0","0","0","0",
+                                           "1","1","2","3","5","0",
+                                           "7","8","1","10","11","0",
+                                           "13","14","13","16","13","17",
+                                           "19","20,21","0","16","13",
+                                           "25","28","29","29","0","0",
+                                           "30","0","27,30","22","31","34","0",
+                                           "40","32,35,40","32,35,40","41","30","42",
+                                           "44,45","44,45","0","32,40","48","0",
+                                           "49,50","51","0"};
+        for(int i=0;i<57;i++){
+            this.fv_pensum_desc[2][i] = fvt_prereq[i];
+        }
+        fvt_prereq = null;
     }
 }

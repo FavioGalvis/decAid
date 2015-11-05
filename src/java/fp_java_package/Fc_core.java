@@ -26,6 +26,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -65,6 +66,11 @@ public class Fc_core extends HttpServlet {
             request.setAttribute("fv_return_path", fv_return_path);
             request.setAttribute("b", e);
         }
+
+        Fc_pensum aaa = new Fc_pensum(); 
+        HttpSession abc = request.getSession();
+        abc.setAttribute("pensum", aaa);
+
         ServletContext fv_sc = getServletContext();
         RequestDispatcher fv_rd = fv_sc.getRequestDispatcher(fv_forward_url);
         fv_rd.forward(request, response);
