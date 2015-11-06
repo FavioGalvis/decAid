@@ -27,6 +27,7 @@ public class Fc_estudiante {
     String fv_nombre_estd = null;
     String fv_correo_estd = null;
     int fv_cedula_estd = 0;
+    int fv_semestre_estd = 0;
     /* 
      * @see fv_estd
      * Variable de almacenamiento de datos numericos del estudiante.
@@ -34,7 +35,7 @@ public class Fc_estudiante {
      * array [variables][N estudiantes]
      * array [0,1,2]={cod_estd,cedula_estd,semestre_estd}
      */
-    int[][] fv_estd = null;
+    int[][] fv_estd;
     /* 
      * @see fv_estd_asig
      * Variable de almacenamiento de datos de las asignaturas matriculadas
@@ -43,7 +44,7 @@ public class Fc_estudiante {
      * array [variables][N estudiantes]
      * array [0,1,2,3,4,5,6,7,8,9]={cod_asig_1,cod_asig_2,....,cod_asig_n}
      */
-    int[][] fv_estd_asig = null;
+    int[][] fv_estd_asig;
     /* 
      * @see fv_estd_string
      * Variable de almacenamiento de datos String del estudiante.
@@ -51,13 +52,17 @@ public class Fc_estudiante {
      * array [variables][N estudiantes]
      * array [0,1]={nombre_estd,correo_estd}
      */
-    String[][] fv_estd_string = null;
+    String[][] fv_estd_string;
     /** 
      * Metodo constructor
      * @param num_estd Numero de estudiantes para ingresar datos en el programa
      */
-    public Fc_estudiante( int num_estd ){
+    public Fc_estudiante( int farg_num_estd ){
         
+        // Inicializacion de arreglos de estudiantes segun input del usuario
+        this.fv_estd = new int[3][farg_num_estd];
+        this.fv_estd_asig = new int[10][farg_num_estd];
+        this.fv_estd_string = new String[2][farg_num_estd];
         
     }
 }

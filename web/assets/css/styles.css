@@ -22,6 +22,7 @@ h6 {
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
   color: #17baef;
+  padding-top: 150;
 }
 a {
   color: #17baef;
@@ -97,6 +98,9 @@ pre code {
   position: fixed;
   width: 100%;
 }
+.header.bg-white {
+    background: #fff;
+}
 .header.navbar-fixed-top {
   background: #fff;
   z-index: 9999;
@@ -117,6 +121,9 @@ pre code {
 }
 .header .logo a {
   color: #fff;
+}
+.header .logo a.white {
+  color: #17baef;
 }
 .header .logo a:hover {
   text-decoration: none;
@@ -300,6 +307,9 @@ pre code {
   color: #074f66;
   margin-top: 0;
   margin-bottom: 30px;
+}
+.docs .title .highlight {
+  color: #eebf3f;
 }
 .docs .docs-inner {
   max-width: 800px;
@@ -633,3 +643,16 @@ pre code {
 /* Small devices (tablets, 768px and up) */
 /* Medium devices (desktops, 992px and up) */
 /* Large devices (large desktops, 1200px and up) */
+
+.shadow {
+    -moz-box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+}
+.red {
+    background: #f2dede;
+    color: #a94442;
+}
+.tight {
+    margin: -10px 0px -15px;
+}

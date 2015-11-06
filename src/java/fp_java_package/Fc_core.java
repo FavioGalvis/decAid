@@ -27,6 +27,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import static fp_java_package.Fc_layout.*;
 
 /**
  *
@@ -49,7 +50,7 @@ public class Fc_core extends HttpServlet {
      * @throws ServletException
      * @throws IOException
      */
-    @Override
+    /*@Override
     protected void doPost (HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         Fc_core clase = new Fc_core();
@@ -74,5 +75,38 @@ public class Fc_core extends HttpServlet {
         ServletContext fv_sc = getServletContext();
         RequestDispatcher fv_rd = fv_sc.getRequestDispatcher(fv_forward_url);
         fv_rd.forward(request, response);
+    }*/
+    /**
+     *
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
+    @Override
+    protected void doPost (HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        String fv_return_path = request.getParameter("fform_begin");
+        String fv_return_page_head = null;
+        String fv_return_page_foot = null;
+        String url = null;
+        if (("begin".equals(fv_return_path)) && !("activated".equals(request.getAttribute("fg_session_started")))){
+            fv_return_page_head = fm_layout_header(true);
+            fv_return_page_head = fv_return_page_head + fm_layout_menu();
+            fv_return_page_foot = fm_layout_footer(true);
+            url = "/init.jsp";
+            request.setAttribute("fv_return_page_head",fv_return_page_head);
+            request.setAttribute("fv_return_page_foot",fv_return_page_foot);
+            fm_forward(url,request,response);
+        }
     }
+    
+    public void fm_forward (String fv_forward_url,HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        ServletContext fv_sc = getServletContext();
+        RequestDispatcher fv_rd = fv_sc.getRequestDispatcher(fv_forward_url);
+        fv_rd.forward(request,response);
+    }
+    
+    
 }

@@ -78,12 +78,14 @@
                 Universidad Simon Bolivar</p>
             <%if((request.getAttribute("fv_return_path"))!=null){%>
                         <h3>Impresion de la matriz Anterior: <%out.println(request.getAttribute("b"));%></h3>
+                        <h3>Impresion de la matriz Anterior: <%out.println(request.getAttribute("fv_return_path"));%></h3>
             <%}%>
             <div class="btns">
                 <a class="btn btn-cta-secondary">
                 <form method="POST" action="start">
                     <input type="hidden" name="b" value="${b}">
-                    <input class="btn-clear" type="submit" name="start" value="INICIAR">
+                    <input type="hidden" name="fform_begin" value="begin">
+                    <input class="btn-clear" type="submit" value="INICIAR">
                 </form>
                 </a>
                 <a class="btn btn-cta-primary" href="https://github.com/FavioGalvis/decAid/archive/master.zip" target="_blank">Fuentes</a>
