@@ -90,11 +90,58 @@ public class Fc_core extends HttpServlet {
         String fv_return_page_head = null;
         String fv_return_page_foot = null;
         String url = null;
-        if (("begin".equals(fv_return_path)) && !("activated".equals(request.getAttribute("fg_session_started")))){
+        if (("begin".equals(fv_return_path)) && !("activated".equals(request.getParameter("fg_session_started")))){
             fv_return_page_head = fm_layout_header(true);
             fv_return_page_head = fv_return_page_head + fm_layout_menu();
             fv_return_page_foot = fm_layout_footer(true);
             url = "/init.jsp";
+            request.setAttribute("fv_return_page_head",fv_return_page_head);
+            request.setAttribute("fv_return_page_foot",fv_return_page_foot);
+            fm_forward(url,request,response);
+        } else if (("init".equals(fv_return_path)) && !("activated".equals(request.getParameter("fg_session_started")))){
+            HttpSession fo_session = request.getSession();
+            String fg_session_started = "creating";
+            String fg_http_response = "";
+            Fc_pensum fo_pensum = new Fc_pensum();
+            fv_return_page_head = fm_layout_header(true);
+            fv_return_page_head = fv_return_page_head + fm_layout_menu();
+            fv_return_page_foot = fm_layout_footer(true);
+            int fform_num_estd = Integer.parseInt(request.getParameter("fform_num_estd"));
+            for ( int i=0;i<fform_num_estd;i++ ){
+                fg_http_response = fg_http_response+"<div class=\"form-group col-xs-2\">"+
+                    "<div class=\"input-group\">"+
+                        "<span class=\"input-group-addon\"><i class=\"fa fa-asterisk red\"></i>"+
+                        "Estudiante "+(i+1)+
+                        "</span>"+
+                    "</div>"+
+                "</div>";
+                fg_http_response = fg_http_response+
+                "<div class=\"form-group col-xs-10\">"+
+                    "<div class=\"input-group\">"+
+                        "<span class=\"input-group-addon\"><i class=\"fa fa-asterisk red\"></i></span>"+
+                        "<input type=\"text\" class=\"form-control\" name=\"ffrom_data_stud\" placeholder=\"Nombre\" required>"+
+                        "<input type=\"email\" class=\"form-control\" name=\"ffrom_data_stud\" placeholder=\"Email\" required>"+
+                        "<input type=\"number\" class=\"form-control\" name=\"ffrom_data_stud\" placeholder=\"Codigo\" required>"+
+                        "<input type=\"number\" class=\"form-control\" name=\"ffrom_data_stud\" placeholder=\"Cedula\" required>"+
+                        "<input type=\"number\" class=\"form-control\" name=\"ffrom_data_stud\" placeholder=\"Semestre\" required>"+
+                        "<select id=\"multiple\" multiple class=\"form-control\" name=\"ffrom_data_stud\" required>";
+                        for ( int j=0;j<57;j++ ){
+                            
+                        }
+                fg_http_response = fg_http_response+        
+                        "   <option>1</option>"+
+                        "   <option>2</option>"+
+                        "   <option>3</option>"+
+                        "   <option>4</option>"+
+                        "   <option>5</option>"+
+                        
+                        
+                        "</select>"+
+                    "</div>"+
+                "</div>";
+            }
+            request.setAttribute("fg_http_response",fg_http_response);
+            url = "/read.jsp";
             request.setAttribute("fv_return_page_head",fv_return_page_head);
             request.setAttribute("fv_return_page_foot",fv_return_page_foot);
             fm_forward(url,request,response);

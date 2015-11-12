@@ -26,12 +26,15 @@
                         <div class="panel panel-danger panel-body red">
                             <p class="tight">Los campos con <i class="fa fa-asterisk"></i> son obligatorios.<p>
                         </div>
-                        <div class="form-group">
+                        <!--div class="form-group">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
                                 <input type="text" class="form-control" name="fform_num_estd" placeholder="Numero de Estudiantes">
                             </div>
-                        </div>
+                        </div-->
+                        <%
+                            out.println( request.getAttribute("fg_http_response") );
+                        %>
                         <p class="center-block"><i class="fa fa-asterisk red"></i> Este campo creará los arreglos de los estudiantes que se van a analizar en el programa, por ello ingresar una cantidad muy numerosa presupone un proceso de inicializacion mas largo. Recuerde verificar este valor.<p>    
                         <div class="btns">
                             <div class="btn btn-cta-primary center-block">

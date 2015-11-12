@@ -83,7 +83,6 @@
             <div class="btns">
                 <a class="btn btn-cta-secondary">
                 <form method="POST" action="start">
-                    <input type="hidden" name="b" value="${b}">
                     <input type="hidden" name="fform_begin" value="begin">
                     <input class="btn-clear" type="submit" value="INICIAR">
                 </form>
