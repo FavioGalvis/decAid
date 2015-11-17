@@ -66,6 +66,7 @@ public class Fc_layout {
                     "      <script src=\"https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js\"></script>\n" +
                     "      <script src=\"https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js\"></script>\n" +
                     "    <![endif]-->\n" +
+                    "    <link rel=\"stylesheet\" href=\"assets/dist/css/bootstrap-select.min.css\">\n" +
                     "</head> ";
             return fv_layout_header;
         }
@@ -109,6 +110,7 @@ public class Fc_layout {
             "    <script type=\"text/javascript\" src=\"assets/plugins/jquery-scrollTo/jquery.scrollTo.min.js\"></script>\n" +
             "    <script type=\"text/javascript\" src=\"assets/plugins/prism/prism.js\"></script>\n" +
             "    <script type=\"text/javascript\" src=\"assets/js/main.js\"></script>\n" +
+            "    <script type=\"text/javascript\" src=\"assets/dist/js/bootstrap-select.min.js\"></script>\n" +
             "</body>\n";
         return fv_layout_footer_inc;
     }

@@ -124,19 +124,19 @@ public class Fc_core extends HttpServlet {
                         "<input type=\"number\" class=\"form-control\" name=\"ffrom_data_stud\" placeholder=\"Codigo\" required>"+
                         "<input type=\"number\" class=\"form-control\" name=\"ffrom_data_stud\" placeholder=\"Cedula\" required>"+
                         "<input type=\"number\" class=\"form-control\" name=\"ffrom_data_stud\" placeholder=\"Semestre\" required>"+
-                        "<select id=\"multiple\" multiple class=\"form-control\" name=\"ffrom_data_stud\" required>";
+                        "<select id=\"multiple\" multiple data-live-search=\"true\" class=\"form-control selectpicker\" name=\"ffrom_data_stud_pensum[]\" required>";
                         for ( int j=0;j<57;j++ ){
-                            
+                           fg_http_response = fg_http_response+"   <option>"+fo_pensum.fv_pensum_desc[0][j]+"</option>";
                         }
-                fg_http_response = fg_http_response+        
+                /*fg_http_response = fg_http_response+        
                         "   <option>1</option>"+
                         "   <option>2</option>"+
                         "   <option>3</option>"+
                         "   <option>4</option>"+
-                        "   <option>5</option>"+
+                        "   <option>5</option>"+*/
                         
                         
-                        "</select>"+
+                        fg_http_response = fg_http_response+"</select>"+
                     "</div>"+
                 "</div>";
             }
