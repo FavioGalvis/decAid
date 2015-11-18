@@ -100,13 +100,16 @@ public class Fc_core extends HttpServlet {
             fm_forward(url,request,response);
         } else if (("init".equals(fv_return_path)) && !("activated".equals(request.getParameter("fg_session_started")))){
             HttpSession fo_session = request.getSession();
-            String fg_session_started = "creating";
+            String fg_session_started = "creating_students";
+            fo_session.setAttribute("fg_session_started", fg_session_started);
             String fg_http_response = "";
             Fc_pensum fo_pensum = new Fc_pensum();
+            fo_session.setAttribute("fo_pensum",fo_pensum);
             fv_return_page_head = fm_layout_header(true);
             fv_return_page_head = fv_return_page_head + fm_layout_menu();
             fv_return_page_foot = fm_layout_footer(true);
             int fform_num_estd = Integer.parseInt(request.getParameter("fform_num_estd"));
+            fo_session.setAttribute("fform_num_estd", fform_num_estd);
             for ( int i=0;i<fform_num_estd;i++ ){
                 fg_http_response = fg_http_response+"<div class=\"form-group col-xs-2\">"+
                     "<div class=\"input-group\">"+
@@ -119,23 +122,15 @@ public class Fc_core extends HttpServlet {
                 "<div class=\"form-group col-xs-10\">"+
                     "<div class=\"input-group\">"+
                         "<span class=\"input-group-addon\"><i class=\"fa fa-asterisk red\"></i></span>"+
-                        "<input type=\"text\" class=\"form-control\" name=\"ffrom_data_stud\" placeholder=\"Nombre\" required>"+
-                        "<input type=\"email\" class=\"form-control\" name=\"ffrom_data_stud\" placeholder=\"Email\" required>"+
-                        "<input type=\"number\" class=\"form-control\" name=\"ffrom_data_stud\" placeholder=\"Codigo\" required>"+
-                        "<input type=\"number\" class=\"form-control\" name=\"ffrom_data_stud\" placeholder=\"Cedula\" required>"+
-                        "<input type=\"number\" class=\"form-control\" name=\"ffrom_data_stud\" placeholder=\"Semestre\" required>"+
-                        "<select id=\"multiple\" multiple data-live-search=\"true\" class=\"form-control selectpicker\" name=\"ffrom_data_stud_pensum[]\" required>";
+                        "<input type=\"text\" class=\"form-control\" name=\"fform_data_stud_name\" placeholder=\"Nombre\" required>"+
+                        "<input type=\"email\" class=\"form-control\" name=\"fform_data_stud_email\" placeholder=\"Email\" required>"+
+                        "<input type=\"number\" class=\"form-control\" name=\"fform_data_stud_cod\" placeholder=\"Codigo\" required>"+
+                        "<input type=\"number\" class=\"form-control\" name=\"fform_data_stud_cc\" placeholder=\"Cedula\" required>"+
+                        "<input type=\"number\" class=\"form-control\" name=\"fform_data_stud_sem\" placeholder=\"Semestre\" required>"+
+                        "<select id=\"pensum_estd\" multiple=\"multiple\" class=\"form-control\" name=\"fform_data_stud_pensum_"+i+"\" required>";
                         for ( int j=0;j<57;j++ ){
                            fg_http_response = fg_http_response+"   <option>"+fo_pensum.fv_pensum_desc[0][j]+"</option>";
                         }
-                /*fg_http_response = fg_http_response+        
-                        "   <option>1</option>"+
-                        "   <option>2</option>"+
-                        "   <option>3</option>"+
-                        "   <option>4</option>"+
-                        "   <option>5</option>"+*/
-                        
-                        
                         fg_http_response = fg_http_response+"</select>"+
                     "</div>"+
                 "</div>";
@@ -145,6 +140,99 @@ public class Fc_core extends HttpServlet {
             request.setAttribute("fv_return_page_head",fv_return_page_head);
             request.setAttribute("fv_return_page_foot",fv_return_page_foot);
             fm_forward(url,request,response);
+        } else if (("init_notes".equals(fv_return_path)) && !("activated".equals(request.getParameter("fg_session_started")))){
+            HttpSession fo_session = request.getSession();
+            String fg_session_started = "creating_notes";
+            fo_session.setAttribute("fg_session_started", fg_session_started);
+            String fg_http_response = "";
+            Fc_pensum fo_pensum = (Fc_pensum) fo_session.getAttribute("fo_pensum");
+            fv_return_page_head = fm_layout_header(true);
+            fv_return_page_head = fv_return_page_head + fm_layout_menu();
+            fv_return_page_foot = fm_layout_footer(true);
+            Integer fform_num_estd = (Integer) fo_session.getAttribute("fform_num_estd");
+            String[] fform_data_stud_name = request.getParameterValues("fform_data_stud_name");
+            fo_session.setAttribute("fform_data_stud_name", fform_data_stud_name);
+            String[] fform_data_stud_email = request.getParameterValues("fform_data_stud_email");
+            fo_session.setAttribute("fform_data_stud_email", fform_data_stud_email);
+            String[] fform_data_stud_cod = request.getParameterValues("fform_data_stud_cod");
+            fo_session.setAttribute("fform_data_stud_cod", fform_data_stud_cod);
+            String[] fform_data_stud_cc = request.getParameterValues("fform_data_stud_cc");
+            fo_session.setAttribute("fform_data_stud_cc", fform_data_stud_cc);
+            String[] fform_data_stud_sem = request.getParameterValues("fform_data_stud_sem");
+            fo_session.setAttribute("fform_data_stud_sem", fform_data_stud_sem);
+            String fform_data_stud_pensum[][] = new String[10][fform_num_estd];
+            
+            String[] temp_2;
+            String temp = "";
+            for ( int j=0;j<fform_num_estd;j++ ){
+                temp = "fform_data_stud_pensum_"+j;
+                temp_2 = request.getParameterValues(temp);
+                for ( int h=0;h<temp_2.length;h++ ){
+                    fform_data_stud_pensum[h][j]=temp_2[h];
+                }
+            }
+            for ( int i=0;i<fform_num_estd;i++ ){
+                fg_http_response = fg_http_response+"<div class=\"form-group col-xs-2\">"+
+                    "<div class=\"input-group\">"+
+                        "<span class=\"input-group-addon\"><i class=\"fa fa-asterisk red\"></i>"+
+                        "<"+(i+1)+"> "+fform_data_stud_name[i]+
+                        "</span>"+
+                    "</div>"+
+                "</div>";
+                fg_http_response = fg_http_response+
+                "<div class=\"form-group col-xs-10\">";
+                for( int k=0;k<10;k++ ){        
+                    if( fform_data_stud_pensum[k][i]!=null ){
+                        fg_http_response = fg_http_response+    
+                        "<div class=\"input-group\" style=\"display: inline-flex;\">"+
+                            "<span class=\"input-group-addon\" style=\"min-width: 200px;\">"+fform_data_stud_pensum[k][i]+"</span>"+
+                            "<input type=\"number\" step=\"any\" min=\"0\" class=\"form-control\" name=\"fform_data_stud_"+i+"_asig_"+k+"_p1\" placeholder=\"P1\" required>"+
+                            "<input type=\"number\" step=\"any\" min=\"0\" class=\"form-control\" name=\"fform_data_stud_"+i+"_asig_"+k+"_p2\" placeholder=\"P2\" required>"+
+                            "<input type=\"number\" step=\"any\" min=\"0\" class=\"form-control\" name=\"fform_data_stud_"+i+"_asig_"+k+"_pf\" placeholder=\"PF\" required>"+
+                        "</div>";
+                    }
+                }
+                fg_http_response = fg_http_response+"</div>";     
+            }
+            fo_session.setAttribute("fform_data_stud_pensum", fform_data_stud_pensum);
+            request.setAttribute("fg_http_response",fg_http_response);
+            url = "/init_notes.jsp";
+            request.setAttribute("fv_return_page_head",fv_return_page_head);
+            request.setAttribute("fv_return_page_foot",fv_return_page_foot);
+            fm_forward(url,request,response);
+        } else if (("core".equals(fv_return_path)) && !("activated".equals(request.getParameter("fg_session_started")))){
+            HttpSession fo_session = request.getSession();
+            String fg_session_started = "creating_objets";
+            fo_session.setAttribute("fg_session_started", fg_session_started);
+            String fg_http_response = "";
+            Fc_pensum fo_pensum = (Fc_pensum) fo_session.getAttribute("fo_pensum");
+            fv_return_page_head = fm_layout_header(true);
+            fv_return_page_head = fv_return_page_head + fm_layout_menu();
+            fv_return_page_foot = fm_layout_footer(true);
+            Integer fform_num_estd = (Integer) fo_session.getAttribute("fform_num_estd");
+            Fc_estudiante fo_estudiante = new Fc_estudiante(fform_num_estd);
+            String[] fform_data_stud_cod = (String []) fo_session.getAttribute("fform_data_stud_cod");
+            String[] fform_data_stud_cc = (String []) fo_session.getAttribute("fform_data_stud_cc");
+            String[] fform_data_stud_sem = (String []) fo_session.getAttribute("fform_data_stud_sem");
+            String[] fform_data_stud_name = (String []) fo_session.getAttribute("fform_data_stud_name");
+            String[] fform_data_stud_email = (String []) fo_session.getAttribute("fform_data_stud_email");
+            String[][] fform_data_stud_pensum = (String [][]) fo_session.getAttribute("fform_data_stud_pensum");
+            for ( int i=0;i<fform_num_estd;i++ ){
+                fo_estudiante.fv_estd[0][i]=Integer.parseInt(fform_data_stud_cod[i]);
+                fo_estudiante.fv_estd[1][i]=Integer.parseInt(fform_data_stud_cc[i]);
+                fo_estudiante.fv_estd[2][i]=Integer.parseInt(fform_data_stud_sem[i]);
+                fo_estudiante.fv_estd_string[0][i]=fform_data_stud_name[i];
+                fo_estudiante.fv_estd_string[1][i]=fform_data_stud_email[i];
+                for ( int j=0;j<10;j++ ){
+                    if ( fform_data_stud_pensum[j][i]!=null ){
+                        fo_estudiante.fv_estd_asig[j][i]=fo_pensum.fm_search_asig_cod_by_name ( fform_data_stud_pensum[j][i] );
+                    }else{
+                        fo_estudiante.fv_estd_asig[j][i]=0;
+                    }
+                }
+            }
+            Fc_calificacion fo_calificacion = new Fc_calificacion( fform_num_estd );
+            //asignar valores al objeto de calificacion de parte del request te la pagina anterior.
         }
     }
     

@@ -21,21 +21,18 @@
                 <p>Como es tu primera visita a la pagina debemos iniciar la session de trabajo y determinar las variables que analizarás de los estudiantes. Ingresa todos los datos que solicite el formulario y presiona el boton inicializar, cualquier inquietud no dudes en consultar la ayuda.</p>
                 <div class="well shadow">
                     <form class="init-form" method="POST" action="start">
-                        <input type="hidden" name="fform_begin" value="init">
+                        <input type="hidden" name="fform_begin" value="core">
                         <h3 class="sub-title text-center">DATOS DE ESTUDIANTES PARA ANALIZAR</h3>
                         <div class="panel panel-danger panel-body red">
                             <p class="tight">Los campos con <i class="fa fa-asterisk"></i> son obligatorios.<p>
                         </div>
-                        <div class="form-group">
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                <input type="text" class="form-control" name="fform_num_estd" placeholder="Numero de Estudiantes">
-                            </div>
-                        </div>
-                        <p class="center-block"><i class="fa fa-asterisk red"></i> Este campo creará los arreglos de los estudiantes que se van a analizar en el programa, por ello ingresar una cantidad muy numerosa presupone un proceso de inicializacion mas largo. Recuerde verificar este valor.<p>    
+                        <%
+                            out.println( request.getAttribute("fg_http_response") );
+                        %>
+                        <p class="center-block"><i class="fa fa-asterisk red"></i> A continuacion debes ingresar las calificaciones de cada materia de los estudiantes ingresados.<p>    
                         <div class="btns">
                             <div class="btn btn-cta-primary center-block">
-                                <input class="btn-clear" type="submit" value="CREAR ESTUDIANTES">  
+                                <input class="btn-clear" type="submit" value="CREAR ARREGLOS">  
                             </div>
                         </div>  
                     </form>

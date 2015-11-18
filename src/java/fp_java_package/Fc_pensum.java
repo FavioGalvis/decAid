@@ -213,59 +213,59 @@ public class Fc_pensum {
         /* 
          * Nombres de cada Asignatura.
          */
-        String fvt_nombre[] = new String[]{ "Algebra y Trigonometría",
+        String fvt_nombre[] = new String[]{ "Algebra y Trigonometria",
                                             "Competencia Comunicativa en Lengua Castellana I",
-                                            "Algoritmia y Programación I",
-                                            "Introducción a la Ingeniería de Sistemas",
+                                            "Algoritmia y Programacion I",
+                                            "Introduccion a la Ingenieria de Sistemas",
                                             "Crecimiento Intragrupal I",
-                                            "Cátedra Bolivariana",
-                                            "Cálculo Diferencial",
-                                            "Álgebra Lineal",
+                                            "Catedra Bolivariana",
+                                            "Calculo Diferencial",
+                                            "Algebra Lineal",
                                             "Competencia Comunicativa en Lengua Castellana II",
-                                            "Algoritmia y Programación II",
+                                            "Algoritmia y Programacion II",
                                             "Crecimiento Intragrupal II",
                                             "Cultura y Deporte",
-                                            "Cálculo Integral",
-                                            "Física Mecánica",
-                                            "Lógica Matemática",
+                                            "Calculo Integral",
+                                            "Fisica Mecanica",
+                                            "Logica Matematica",
                                             "Estructura de Datos",
                                             "Crecimiento Intragrupal III",
-                                            "Educación para la Democracia",
-                                            "Cálculo de Varias Variables",
-                                            "Física Electricidad y Magnetismo",
-                                            "Estadística Descriptiva y Probabilística",
+                                            "Educacion para la Democracia",
+                                            "Calculo de Varias Variables",
+                                            "Fisica Electricidad y Magnetismo",
+                                            "Estadistica Descriptiva y Probabilistica",
                                             "Analisis de Algoritmos",
-                                            "Diseño Lógico Digita",
+                                            "Diseno Logico Digita",
                                             "Crecimiento Intragrupal IV",
                                             "Ecuaciones Diferenciales",
-                                            "Física Electricidad y Magnetismo",
-                                            "Estadística Descriptiva y Probabilística",
+                                            "Fisica Electricidad y Magnetismo",
+                                            "Estadistica Descriptiva y Probabilistica",
                                             "Analisis de Algoritmos",
-                                            "Diseño Lógico Digital",
+                                            "Diseno Logico Digital",
                                             "Crecimiento Intragrupal IV",
                                             "Ecuaciones Diferenciales",
-                                            "Electiva en Ciencias Básicas",
-                                            "Teoría de Sistemas",
+                                            "Electiva en Ciencias Basicas",
+                                            "Teoria de Sistemas",
                                             "Bases de Datos",
                                             "Arquitectura del Computador",
-                                            "Matemáticas Discretas",
-                                            "Ingeniería del Software I",
+                                            "Matematicas Discretas",
+                                            "Ingenieria del Software I",
                                             "Redes",
                                             "Sistemas Operativos",
-                                            "Formación Investigativa I",
-                                            "Gestion de Proyectos Informáticos",
-                                            "Análisis Numérico",
-                                            "Investigación de Operaciones",
+                                            "Formacion Investigativa I",
+                                            "Gestion de Proyectos Informaticos",
+                                            "Analisis Numerico",
+                                            "Investigacion de Operaciones",
                                             "Inteligencia Artificial",
-                                            "Teoría de Compiladores",
-                                            "Ingeniería del Software II",
-                                            "Formación Investigativa II",
+                                            "Teoria de Compiladores",
+                                            "Ingenieria del Software II",
+                                            "Formacion Investigativa II",
                                             "Electiva de Sociohumanidades I",
-                                            "Ingeniería Web",
+                                            "Ingenieria Web",
                                             "Electiva Profesional I",
                                             "Electiva Profesional II",
-                                            "Formación Investigativa III",
-                                            "Matemáticas Financieras",
+                                            "Formacion Investigativa III",
+                                            "Matematicas Financieras",
                                             "Electiva de Sociohumanidades II",
                                             "Electiva Profesional III",
                                             "Electiva Profesional IV",
@@ -275,7 +275,7 @@ public class Fc_pensum {
                                             "Etica Profesional",
                                             "Electiva Profesional V",
                                             "Electiva Profesional Interdisciplinaria II",
-                                            "Práctica Profesional"};
+                                            "Practica Profesional"};
         for(int i=0;i<57;i++){
             this.fv_pensum_desc[0][i] = fvt_nombre[i];
         }
@@ -298,5 +298,17 @@ public class Fc_pensum {
             this.fv_pensum_desc[2][i] = fvt_prereq[i];
         }
         fvt_prereq = null;
+    }
+    
+    int fm_search_asig_cod_by_name ( String farg_asig_to_search ){
+        int fv_result=0;
+        for ( int i=0;i<57;i++ ){
+            if ( farg_asig_to_search.equals(this.fv_pensum_desc[0][i]) ){
+                fv_result=i+1;
+                i=57;
+            }
+        }
+        return fv_result;
+        
     }
 }
