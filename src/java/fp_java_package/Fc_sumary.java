@@ -22,57 +22,47 @@ package fp_java_package;
  * estudiantes.
  * @author FGALVIS
  */
-public class Fc_calificacion {
+public class Fc_sumary {
     
-    double fv_ref_estd = 0;
-    double fv_ref_asig = 0;
-    double fv_calf_n1 = 0;
-    double fv_calf_n2 = 0;
-    double fv_calf_n3 = 0;
-    double fv_calf_def = 0;
-    double fv_calf_res = 0;
-    /* 
-     * @see fv_calf
-     * Variable de almacenamiento de calificaciones del estudiante.
-     * Se inicializa en el metodo constructor con N*10 como indice
-     * donde N = numero de estudiantes.
-     * array [variables][N*10]
-     * array [0,1,2,3,4,5,6]={ref_estd,ref_asig,fv_calf_n1,fv_calf_n2,
-     *                        fv_calf_n3,fv_calf_def,fv_calf_res}
-     */
-    double[][] fv_calf;
+    int fv_1=0;
+    int fv_2=0;
     /** 
      * Metodo constructor
      * @param farg_num_estd Numero de estudiantes para ingresar datos en el programa
+     * @param fo_estudiante
      */
-    public Fc_calificacion ( int farg_num_estd ){
+    public Fc_sumary ( int farg_num_estd, Fc_estudiante fo_estudiante,
+            Fc_calificacion fo_calificacion, Fc_pensum fo_pensum, String farg_validate ){
         
+        int fv_cod_stud,fv_cod_asig,fv_cred_asig,fv_sum_cred_stud = 0;
+        double [] fv_calf;
+        double fv_sum_pond_stud = 0,fv_pond_stud;
         /* 
          * Inicializacion del arreglo de almacenamiento de notas
          * de doble indice.
          * primario: array[0][] = ref_estd //codigo de referencia del estudiante
          * secundario: array[1][] = ref_asig //codigo de asignatura de las calf
          */
-        this.fv_calf = new double[7][(10*farg_num_estd)];
-        
-    }
-    
-    double fm_calculate_calf_pf( double fv_p1, double fv_p2, double fv_pf ){
-        double fv_result=0;
-        fv_result = (fv_p1*(0.3))+(fv_p2*(0.3))+(fv_pf*(0.4));
-        return fv_result;
-    }
-    
-    double[] fm_search_calf ( int fv_cod_stud, int fv_cod_asig, Fc_calificacion fo_calificacion ){
-        double[] result = new double[5];
-        for ( int i=0;i<fo_calificacion.fv_calf[0].length;i++ ){
-            if ( fo_calificacion.fv_calf[0][i]!=0 && fo_calificacion.fv_calf[0][i]==fv_cod_stud
-                    && fo_calificacion.fv_calf[1][i]==fv_cod_asig ){
-                for ( int j=0;j<5;j++){
-                    result[j]=fo_calificacion.fv_calf[j+2][i];
+        for ( int i=0;i<farg_num_estd;i++ ){
+            fv_cod_stud=fo_estudiante.fv_estd[0][i];
+            for ( int j=0;j<10;j++ ){
+                if( fo_estudiante.fv_estd_asig[j][i]!=0 ){
+                    fv_cod_asig=fo_estudiante.fv_estd_asig[j][i];
+                    fv_calf = fo_calificacion.fm_search_calf(fv_cod_stud, fv_cod_asig, fo_calificacion);
+                    fv_cred_asig = fo_pensum.fm_search_asig_cred_by_cod(fv_cod_asig);
+                    fv_sum_pond_stud = fv_sum_pond_stud+fv_calf[3]*fv_cred_asig;
+                    fv_sum_cred_stud = fv_sum_cred_stud+fv_cred_asig;
                 }
             }
+            fv_pond_stud = fv_sum_pond_stud/fv_sum_cred_stud;
+            if( fv_pond_stud>=3 ){
+                fv_1 = fv_1 + 1; 
+            } else {
+                fv_2 = fv_2 + 1;
+            }
         }
-        return result;
+        
+        
+        
     }
 }

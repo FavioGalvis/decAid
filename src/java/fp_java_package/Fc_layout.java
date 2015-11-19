@@ -58,7 +58,9 @@ public class Fc_layout {
                     "    <link rel=\"stylesheet\" href=\"assets/plugins/bootstrap/css/bootstrap.min.css\">\n" +
                     "    <!-- Plugins CSS -->\n" +
                     "    <link rel=\"stylesheet\" href=\"assets/plugins/font-awesome/css/font-awesome.css\">\n" +
+                    "    <link rel=\"stylesheet\" href=\"assets/plugins/chosen/css/style.css\">\n" +
                     "    <link rel=\"stylesheet\" href=\"assets/plugins/prism/prism.css\">\n" +
+                    "    <link rel=\"stylesheet\" href=\"assets/plugins/chosen/css/chosen.css\">\n" +
                     "    <!-- Theme CSS -->\n" +
                     "    <link id=\"theme-style\" rel=\"stylesheet\" href=\"assets/css/styles.css\">\n" +
                     "    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->\n" +
@@ -107,8 +109,18 @@ public class Fc_layout {
             "    <script type=\"text/javascript\" src=\"assets/plugins/jquery.easing.1.3.js\"></script>\n" +
             "    <script type=\"text/javascript\" src=\"assets/plugins/bootstrap/js/bootstrap.min.js\"></script>\n" +
             "    <script type=\"text/javascript\" src=\"assets/plugins/jquery-scrollTo/jquery.scrollTo.min.js\"></script>\n" +
+            "    <script type=\"text/javascript\" src=\"assets/plugins/chosen/js/chosen.jquery.js\"></script>\n" +
             "    <script type=\"text/javascript\" src=\"assets/plugins/prism/prism.js\"></script>\n" +
             "    <script type=\"text/javascript\" src=\"assets/js/main.js\"></script>\n" +
+            "    <script type=\"text/javascript\">\n" +
+                    "var config = {    '.chosen-select'           : {no_results_text:'Nada encontrado!',\n"+
+                                                                    "max_selected_options: 10\n"+      
+                                                                   "},\n"+
+                                    "}\n"+
+                                    "for (var selector in config) {\n"+
+                                      "$(selector).chosen(config[selector]);\n"+
+                                    "}\n"+
+                  "</script>\n" +
             "</body>\n";
         return fv_layout_footer_inc;
     }

@@ -90,7 +90,9 @@ public class Fc_core extends HttpServlet {
         String fv_return_page_head = null;
         String fv_return_page_foot = null;
         String url = null;
-        if (("begin".equals(fv_return_path)) && !("activated".equals(request.getParameter("fg_session_started")))){
+        String fg_session_started = null;
+        HttpSession fo_session = request.getSession();
+        if (("begin".equals(fv_return_path)) && !("activated".equals(fo_session.getAttribute("fg_session_started")))){
             fv_return_page_head = fm_layout_header(true);
             fv_return_page_head = fv_return_page_head + fm_layout_menu();
             fv_return_page_foot = fm_layout_footer(true);
@@ -98,9 +100,9 @@ public class Fc_core extends HttpServlet {
             request.setAttribute("fv_return_page_head",fv_return_page_head);
             request.setAttribute("fv_return_page_foot",fv_return_page_foot);
             fm_forward(url,request,response);
-        } else if (("init".equals(fv_return_path)) && !("activated".equals(request.getParameter("fg_session_started")))){
-            HttpSession fo_session = request.getSession();
-            String fg_session_started = "creating_students";
+        } else if (("init".equals(fv_return_path)) && !("activated".equals(fo_session.getAttribute("fg_session_started")))){
+            //HttpSession fo_session = request.getSession();
+            fg_session_started = "creating_students";
             fo_session.setAttribute("fg_session_started", fg_session_started);
             String fg_http_response = "";
             Fc_pensum fo_pensum = new Fc_pensum();
@@ -121,13 +123,12 @@ public class Fc_core extends HttpServlet {
                 fg_http_response = fg_http_response+
                 "<div class=\"form-group col-xs-10\">"+
                     "<div class=\"input-group\">"+
-                        "<span class=\"input-group-addon\"><i class=\"fa fa-asterisk red\"></i></span>"+
                         "<input type=\"text\" class=\"form-control\" name=\"fform_data_stud_name\" placeholder=\"Nombre\" required>"+
                         "<input type=\"email\" class=\"form-control\" name=\"fform_data_stud_email\" placeholder=\"Email\" required>"+
                         "<input type=\"number\" class=\"form-control\" name=\"fform_data_stud_cod\" placeholder=\"Codigo\" required>"+
                         "<input type=\"number\" class=\"form-control\" name=\"fform_data_stud_cc\" placeholder=\"Cedula\" required>"+
                         "<input type=\"number\" class=\"form-control\" name=\"fform_data_stud_sem\" placeholder=\"Semestre\" required>"+
-                        "<select id=\"pensum_estd\" multiple=\"multiple\" class=\"form-control\" name=\"fform_data_stud_pensum_"+i+"\" required>";
+                        "<select data-placeholder=\"Seleccione asignaturas...\" multiple class=\"chosen-select form-control\" name=\"fform_data_stud_pensum_"+i+"\" required>";
                         for ( int j=0;j<57;j++ ){
                            fg_http_response = fg_http_response+"   <option>"+fo_pensum.fv_pensum_desc[0][j]+"</option>";
                         }
@@ -140,9 +141,9 @@ public class Fc_core extends HttpServlet {
             request.setAttribute("fv_return_page_head",fv_return_page_head);
             request.setAttribute("fv_return_page_foot",fv_return_page_foot);
             fm_forward(url,request,response);
-        } else if (("init_notes".equals(fv_return_path)) && !("activated".equals(request.getParameter("fg_session_started")))){
-            HttpSession fo_session = request.getSession();
-            String fg_session_started = "creating_notes";
+        } else if (("init_notes".equals(fv_return_path)) && !("activated".equals(fo_session.getAttribute("fg_session_started")))){
+            //HttpSession fo_session = request.getSession();
+            fg_session_started = "creating_notes";
             fo_session.setAttribute("fg_session_started", fg_session_started);
             String fg_http_response = "";
             Fc_pensum fo_pensum = (Fc_pensum) fo_session.getAttribute("fo_pensum");
@@ -200,9 +201,9 @@ public class Fc_core extends HttpServlet {
             request.setAttribute("fv_return_page_head",fv_return_page_head);
             request.setAttribute("fv_return_page_foot",fv_return_page_foot);
             fm_forward(url,request,response);
-        } else if (("core".equals(fv_return_path)) && !("activated".equals(request.getParameter("fg_session_started")))){
-            HttpSession fo_session = request.getSession();
-            String fg_session_started = "creating_objets";
+        } else if (("core".equals(fv_return_path)) && !("activated".equals(fo_session.getAttribute("fg_session_started")))){
+            //HttpSession fo_session = request.getSession();
+            fg_session_started = "creating_objets";
             fo_session.setAttribute("fg_session_started", fg_session_started);
             String fg_http_response = "";
             Fc_pensum fo_pensum = (Fc_pensum) fo_session.getAttribute("fo_pensum");
@@ -233,6 +234,52 @@ public class Fc_core extends HttpServlet {
             }
             Fc_calificacion fo_calificacion = new Fc_calificacion( fform_num_estd );
             //asignar valores al objeto de calificacion de parte del request te la pagina anterior.
+            String temp = "";
+            int k=0;
+            for ( int i=0;i<fform_num_estd;i++ ){
+                for( int j=0;j<10;j++ ){
+                    if( fform_data_stud_pensum[j][i]!=null ){
+                        fo_calificacion.fv_calf[0][k]=fo_estudiante.fv_estd[0][i];
+                        fo_calificacion.fv_calf[1][k]=fo_estudiante.fv_estd_asig[j][i];
+                        temp = "fform_data_stud_"+i+"_asig_"+j+"_p1";
+                        temp = request.getParameter(temp);
+                        fo_calificacion.fv_calf[2][k]=Double.parseDouble(temp);
+                        temp = "fform_data_stud_"+i+"_asig_"+j+"_p2";
+                        temp = request.getParameter(temp);
+                        fo_calificacion.fv_calf[3][k]=Double.parseDouble(temp);
+                        temp = "fform_data_stud_"+i+"_asig_"+j+"_pf";
+                        temp = request.getParameter(temp);
+                        fo_calificacion.fv_calf[4][k]=Double.parseDouble(temp);
+                        fo_calificacion.fv_calf[5][k]=fo_calificacion.fm_calculate_calf_pf(fo_calificacion.fv_calf[2][k], fo_calificacion.fv_calf[3][k], fo_calificacion.fv_calf[4][k]);
+                        if ( fo_calificacion.fv_calf[5][k]>=3 ){
+                            fo_calificacion.fv_calf[6][k]=1;
+                        } else {
+                            fo_calificacion.fv_calf[6][k]=0;
+                        }
+                        k=k+1;
+                    }
+                }
+            }
+            fo_session.setAttribute("fo_estudiante",fo_estudiante);
+            fo_session.setAttribute("fo_calificacion", fo_calificacion);
+            request.setAttribute("fg_http_response",fg_http_response);
+            url = "/core.jsp";
+            request.setAttribute("fv_return_page_head",fv_return_page_head);
+            request.setAttribute("fv_return_page_foot",fv_return_page_foot);
+            fg_session_started = "activated";
+            //fm_forward(url,request,response);
+        }      
+        if ( "activated".equals(fg_session_started)){
+            Integer fpass_num_estd = (Integer) fo_session.getAttribute("fform_num_estd");
+            Fc_estudiante fo_pass_estudiante = (Fc_estudiante) fo_session.getAttribute("fo_estudiante");
+            Fc_calificacion fo_pass_calificacion = (Fc_calificacion) fo_session.getAttribute("fo_calificacion");
+            Fc_pensum fo_pass_pensum = (Fc_pensum) fo_session.getAttribute("fo_pensum");
+            Fc_sumary fo_sumary = new Fc_sumary( fpass_num_estd, fo_pass_estudiante,
+                                            fo_pass_calificacion, fo_pass_pensum, fg_session_started );
+            //temporal code
+            request.setAttribute("fv_1",fo_sumary.fv_1);
+            request.setAttribute("fv_2",fo_sumary.fv_2);
+            fm_forward(url,request,response);
         }
     }
     

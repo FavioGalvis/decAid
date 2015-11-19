@@ -309,6 +309,16 @@ public class Fc_pensum {
             }
         }
         return fv_result;
-        
+    }
+    
+        int fm_search_asig_cred_by_cod ( int farg_asig_to_search ){
+        int fv_result=0;
+        for ( int i=0;i<57;i++ ){
+            if ( farg_asig_to_search==this.fv_pensum[0][i]){
+                fv_result=this.fv_pensum[1][i];
+                i=57;
+            }
+        }
+        return fv_result;
     }
 }

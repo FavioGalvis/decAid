@@ -29,5 +29,16 @@ jQuery(document).ready(function($) {
 		}
 		
 	});
-
+    var config = {    '.chosen-select'           : {no_results_text:'Nada encontrado!',
+                                                    max_selected_options: 5      
+                                                   },
+                      '.chosen-select-deselect'  : {allow_single_deselect:true},
+                      '.chosen-select-no-single' : {disable_search_threshold:10},
+                      '.chosen-select-no-results': {no_results_text:'Nada encontrado!'},
+                      '.chosen-select-width'     : {width:"95%"},
+                      '.chosen-select-limit'     : {max_selected_options: 5},
+                    }
+                    for (var selector in config) {
+                      $(selector).chosen(config[selector]);
+                    }   
 });
