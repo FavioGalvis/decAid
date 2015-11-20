@@ -40,5 +40,8 @@ jQuery(document).ready(function($) {
                     }
                     for (var selector in config) {
                       $(selector).chosen(config[selector]);
-                    }   
+                    }
+    setTimeout(function(){
+        $('body').addClass('loaded');
+    }, 6000);
 });

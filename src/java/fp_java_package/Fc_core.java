@@ -92,6 +92,7 @@ public class Fc_core extends HttpServlet {
         String url = null;
         String fg_session_started = null;
         HttpSession fo_session = request.getSession();
+        String fg_http_response = "";
         if (("begin".equals(fv_return_path)) && !("activated".equals(fo_session.getAttribute("fg_session_started")))){
             fv_return_page_head = fm_layout_header(true);
             fv_return_page_head = fv_return_page_head + fm_layout_menu();
@@ -104,7 +105,6 @@ public class Fc_core extends HttpServlet {
             //HttpSession fo_session = request.getSession();
             fg_session_started = "creating_students";
             fo_session.setAttribute("fg_session_started", fg_session_started);
-            String fg_http_response = "";
             Fc_pensum fo_pensum = new Fc_pensum();
             fo_session.setAttribute("fo_pensum",fo_pensum);
             fv_return_page_head = fm_layout_header(true);
@@ -145,7 +145,6 @@ public class Fc_core extends HttpServlet {
             //HttpSession fo_session = request.getSession();
             fg_session_started = "creating_notes";
             fo_session.setAttribute("fg_session_started", fg_session_started);
-            String fg_http_response = "";
             Fc_pensum fo_pensum = (Fc_pensum) fo_session.getAttribute("fo_pensum");
             fv_return_page_head = fm_layout_header(true);
             fv_return_page_head = fv_return_page_head + fm_layout_menu();
@@ -205,7 +204,6 @@ public class Fc_core extends HttpServlet {
             //HttpSession fo_session = request.getSession();
             fg_session_started = "creating_objets";
             fo_session.setAttribute("fg_session_started", fg_session_started);
-            String fg_http_response = "";
             Fc_pensum fo_pensum = (Fc_pensum) fo_session.getAttribute("fo_pensum");
             fv_return_page_head = fm_layout_header(true);
             fv_return_page_head = fv_return_page_head + fm_layout_menu();
@@ -262,25 +260,413 @@ public class Fc_core extends HttpServlet {
             }
             fo_session.setAttribute("fo_estudiante",fo_estudiante);
             fo_session.setAttribute("fo_calificacion", fo_calificacion);
-            request.setAttribute("fg_http_response",fg_http_response);
             url = "/core.jsp";
             request.setAttribute("fv_return_page_head",fv_return_page_head);
             request.setAttribute("fv_return_page_foot",fv_return_page_foot);
             fg_session_started = "activated";
-            //fm_forward(url,request,response);
+            fo_session.setAttribute("fg_session_started",fg_session_started);
         }      
-        if ( "activated".equals(fg_session_started)){
+        if ( ("activated".equals(fg_session_started)) ){
             Integer fpass_num_estd = (Integer) fo_session.getAttribute("fform_num_estd");
             Fc_estudiante fo_pass_estudiante = (Fc_estudiante) fo_session.getAttribute("fo_estudiante");
             Fc_calificacion fo_pass_calificacion = (Fc_calificacion) fo_session.getAttribute("fo_calificacion");
             Fc_pensum fo_pass_pensum = (Fc_pensum) fo_session.getAttribute("fo_pensum");
+            fg_session_started = (String) fo_session.getAttribute("fg_session_started");
             Fc_sumary fo_sumary = new Fc_sumary( fpass_num_estd, fo_pass_estudiante,
                                             fo_pass_calificacion, fo_pass_pensum, fg_session_started );
             //temporal code
-            request.setAttribute("fv_1",fo_sumary.fv_1);
-            request.setAttribute("fv_2",fo_sumary.fv_2);
+            fg_http_response = fg_http_response + "<div id=\"loader-wrapper\">"+
+                    "<div id=\"loader\"></div>"+
+                    "<div class=\"loader-section section-left\"></div>"+
+                    "<div class=\"loader-section section-right\"></div>"+
+                "</div>";
+            fg_http_response = fg_http_response + "<div id=\"content\">"+
+                    "<div>"+
+                        "<!-- Nav tabs -->"+
+                        "<ul class=\"nav nav-tabs\" role=\"tablist\">"+
+                          "<li role=\"presentation\" class=\"active\"><a href=\"#generic\" aria-controls=\"generic\" role=\"tab\" data-toggle=\"tab\">Genericas</a></li>"+
+                          "<li role=\"presentation\"><a href=\"#global\" aria-controls=\"global\" role=\"tab\" data-toggle=\"tab\">Globales</a></li>"+
+                          "<li role=\"presentation\"><a href=\"#student\" aria-controls=\"student\" role=\"tab\" data-toggle=\"tab\">Estudiantes</a></li>"+
+                          "<li role=\"presentation\"><a href=\"#configuration\" aria-controls=\"configuration\" role=\"tab\" data-toggle=\"tab\">Configuración</a></li>"+
+                        "</ul>"+
+                        "<!-- Tab panes -->"+
+                        "<div class=\"tab-content\">"+
+                            "<div role=\"tabpanel\" class=\"tab-pane fade in active\" id=\"generic\">"+
+                            /*Inicio Tabulador 1*/
+                                "<div class=\"panel-group\" id=\"accordion\" role=\"tablist\" aria-multiselectable=\"true\">"+
+                                    "<div class=\"panel panel-default\">"+
+                                        "<div class=\"panel-heading\" role=\"tab\" id=\"headingOne\">"+
+                                            "<h4 class=\"panel-title\">"+
+                                                "<a role=\"button\" data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapseOne\" aria-expanded=\"true\" aria-controls=\"collapseOne\">"+
+                                                    "Total de Estudiantes Matriculados"+
+                                                "</a>"+
+                                            "</h4>"+
+                                        "</div>"+
+                                        "<div id=\"collapseOne\" class=\"panel-collapse collapse in\" role=\"tabpanel\" aria-labelledby=\"headingOne\">"+
+                                            "<div class=\"panel-body\">"+
+                                                "<div class=\"col-xs-12\">"+
+                                                    fpass_num_estd+
+                                                "</div>"+
+                                            "</div>"+
+                                        "</div>"+
+                                    "</div>"+
+                                    "<div class=\"panel panel-default\">"+
+                                        "<div class=\"panel-heading\" role=\"tab\" id=\"headingTwo\">"+
+                                            "<h4 class=\"panel-title\">"+
+                                                "<a class=\"collapsed\" role=\"button\" data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapseTwo\" aria-expanded=\"false\" aria-controls=\"collapseTwo\">"+
+                                                    "Total de Materias Matriculadas"+
+                                                "</a>"+
+                                            "</h4>"+
+                                        "</div>"+
+                                        "<div id=\"collapseTwo\" class=\"panel-collapse collapse\" role=\"tabpanel\" aria-labelledby=\"headingTwo\">"+
+                                            "<div class=\"panel-body\">"+
+                                                (fo_sumary.fv_14+fo_sumary.fv_17)+
+                                            "</div>"+
+                                        "</div>"+
+                                    "</div>"+
+                                    "<div class=\"panel panel-default\">"+
+                                        "<div class=\"panel-heading\" role=\"tab\" id=\"headingThree\">"+
+                                            "<h4 class=\"panel-title\">"+
+                                                "<a class=\"collapsed\" role=\"button\" data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapseThree\" aria-expanded=\"false\" aria-controls=\"collapseThree\">"+
+                                                    "Total de Creditos Cursados"+
+                                                "</a>"+
+                                            "</h4>"+
+                                        "</div>"+
+                                    "<div id=\"collapseThree\" class=\"panel-collapse collapse\" role=\"tabpanel\" aria-labelledby=\"headingThree\">"+
+                                        "<div class=\"panel-body\">"+
+                                            (fo_sumary.fv_15+fo_sumary.fv_18)+
+                                        "</div>"+
+                                    "</div>"+
+                                "</div>"+
+                            "</div>"+
+                            /*Fin Tabulador 1*/
+                            "<div role=\"tabpanel\" class=\"tab-pane fade\" id=\"global\">"+
+                            /*Inicio Tabulador 2*/
+                                "<div class=\"panel-group\" id=\"accordion\" role=\"tablist\" aria-multiselectable=\"true\">"+
+                                    "<div class=\"panel panel-default\">"+
+                                        "<div class=\"panel-heading\" role=\"tab\" id=\"headingOne\">"+
+                                            "<h4 class=\"panel-title\">"+
+                                                "<a role=\"button\" data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapseOne\" aria-expanded=\"true\" aria-controls=\"collapseOne\">"+
+                                                //1 y 2
+                                                    "Suma de Estudiantes con Semestre Aprovado/Reprobado"+
+                                                "</a>"+
+                                            "</h4>"+
+                                        "</div>"+
+                                        "<div id=\"collapseOne\" class=\"panel-collapse collapse in\" role=\"tabpanel\" aria-labelledby=\"headingOne\">"+
+                                            "<div class=\"panel-body\">"+
+                                                "<div class=\"col-xs-12\""+
+                                                    "Aprobado: "+fo_sumary.fv_1+" - Reprobado: "+fo_sumary.fv_2+
+                                                "</div>"+
+                                            "</div>"+
+                                        "</div>"+
+                                    "</div>"+
+                                    "<div class=\"panel panel-default\">"+
+                                        "<div class=\"panel-heading\" role=\"tab\" id=\"headingTwo\">"+
+                                            "<h4 class=\"panel-title\">"+
+                                                "<a class=\"collapsed\" role=\"button\" data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapseTwo\" aria-expanded=\"false\" aria-controls=\"collapseTwo\">"+
+                                                //3 y 4
+                                                    "Total de Materias Aprobadas/Reprobadas"+
+                                                "</a>"+
+                                            "</h4>"+
+                                        "</div>"+
+                                        "<div id=\"collapseTwo\" class=\"panel-collapse collapse\" role=\"tabpanel\" aria-labelledby=\"headingTwo\">"+
+                                            "<div class=\"panel-body\">"+
+                                                "Aprobadas: "+fo_sumary.fv_3+" - Reprobadas: "+fo_sumary.fv_4+
+                                            "</div>"+
+                                        "</div>"+
+                                    "</div>"+
+                                    "<div class=\"panel panel-default\">"+
+                                        "<div class=\"panel-heading\" role=\"tab\" id=\"headingThree\">"+
+                                            "<h4 class=\"panel-title\">"+
+                                                "<a class=\"collapsed\" role=\"button\" data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapseThree\" aria-expanded=\"false\" aria-controls=\"collapseThree\">"+
+                                                //5 y 6
+                                                    "Promedio de Notas Definitivas de Materias Aprobadas/Reprobadas"+
+                                                "</a>"+
+                                            "</h4>"+
+                                        "</div>"+
+                                        "<div id=\"collapseThree\" class=\"panel-collapse collapse\" role=\"tabpanel\" aria-labelledby=\"headingThree\">"+
+                                            "<div class=\"panel-body\">"+
+                                                "Prom. Aprobadas: "+fo_sumary.fv_5+" - Prom. Reprobadas: "+fo_sumary.fv_6+
+                                            "</div>"+
+                                        "</div>"+
+                                    "</div>"+
+                                    //continuar
+                                "<div class=\"panel panel-default\">"+
+                                  "<div class=\"panel-heading\" role=\"tab\" id=\"headingThree\">"+
+                                    "<h4 class=\"panel-title\">"+
+                                      "<a class=\"collapsed\" role=\"button\" data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapseThree\" aria-expanded=\"false\" aria-controls=\"collapseThree\">"+
+                                        //7 y 8
+                                        "Semestres Aprobados: Suma de Creditos de Materias Aprobadas/Reprobadas"+
+                                      "</a>"+
+                                    "</h4>"+
+                                  "</div>"+
+                                  "<div id=\"collapseThree\" class=\"panel-collapse collapse\" role=\"tabpanel\" aria-labelledby=\"headingThree\">"+
+                                    "<div class=\"panel-body\">"+
+                                      "Sum. Cred. Aprobadas: "+fo_sumary.fv_7+" - Sum. Cred. Reprobadas: "+fo_sumary.fv_8+
+                                    "</div>"+
+                                  "</div>"+
+                                "</div>"+
+                                "<div class=\"panel panel-default\">"+
+                                  "<div class=\"panel-heading\" role=\"tab\" id=\"headingThree\">"+
+                                    "<h4 class=\"panel-title\">"+
+                                      "<a class=\"collapsed\" role=\"button\" data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapseThree\" aria-expanded=\"false\" aria-controls=\"collapseThree\">"+
+                                        //9 y 10
+                                        "Semestres Reprobados: Suma de Creditos de Materias Aprobadas/Reprobadas"+
+                                      "</a>"+
+                                    "</h4>"+
+                                  "</div>"+
+                                  "<div id=\"collapseThree\" class=\"panel-collapse collapse\" role=\"tabpanel\" aria-labelledby=\"headingThree\">"+
+                                    "<div class=\"panel-body\">"+
+                                      "Sum. Cred. Aprobadas: "+fo_sumary.fv_9+" - Sum. Cred. Reprobadas: "+fo_sumary.fv_10+
+                                    "</div>"+
+                                  "</div>"+
+                                "</div>"+
+                                "<div class=\"panel panel-default\">"+
+                                  "<div class=\"panel-heading\" role=\"tab\" id=\"headingThree\">"+
+                                    "<h4 class=\"panel-title\">"+
+                                      "<a class=\"collapsed\" role=\"button\" data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapseThree\" aria-expanded=\"false\" aria-controls=\"collapseThree\">"+
+                                        //11
+                                        "Estudiante con Mayor Promedio Ponderado"+
+                                      "</a>"+
+                                    "</h4>"+
+                                  "</div>"+
+                                  "<div id=\"collapseThree\" class=\"panel-collapse collapse\" role=\"tabpanel\" aria-labelledby=\"headingThree\">"+
+                                    "<div class=\"panel-body\">"+
+                                      "Nombre: "+fo_pass_estudiante.fm_search_stud_nom_by_cod((int)fo_sumary.fv_11[1], fo_pass_estudiante)+" - Codigo: "+fo_sumary.fv_11[1]+" - Promedio: "+fo_sumary.fv_11[0]+
+                                    "</div>"+
+                                  "</div>"+
+                                "</div>"+
+                                "<div class=\"panel panel-default\">"+
+                                  "<div class=\"panel-heading\" role=\"tab\" id=\"headingThree\">"+
+                                    "<h4 class=\"panel-title\">"+
+                                      "<a class=\"collapsed\" role=\"button\" data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapseThree\" aria-expanded=\"false\" aria-controls=\"collapseThree\">"+
+                                        //12
+                                        "Estudiante con Menor Promedio Ponderado"+
+                                      "</a>"+
+                                    "</h4>"+
+                                  "</div>"+
+                                  "<div id=\"collapseThree\" class=\"panel-collapse collapse\" role=\"tabpanel\" aria-labelledby=\"headingThree\">"+
+                                    "<div class=\"panel-body\">"+
+                                      "Nombre: "+fo_pass_estudiante.fm_search_stud_nom_by_cod((int)fo_sumary.fv_12[1], fo_pass_estudiante)+" - Codigo: "+fo_sumary.fv_12[1]+" - Promedio: "+fo_sumary.fv_12[0]+
+                                    "</div>"+
+                                  "</div>"+
+                                "</div>"+
+                                "<div class=\"panel panel-default\">"+
+                                  "<div class=\"panel-heading\" role=\"tab\" id=\"headingThree\">"+
+                                    "<h4 class=\"panel-title\">"+
+                                      "<a class=\"collapsed\" role=\"button\" data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapseThree\" aria-expanded=\"false\" aria-controls=\"collapseThree\">"+
+                                        //13
+                                        "Promedio General de Promedios Ponderados"+
+                                      "</a>"+
+                                    "</h4>"+
+                                  "</div>"+
+                                  "<div id=\"collapseThree\" class=\"panel-collapse collapse\" role=\"tabpanel\" aria-labelledby=\"headingThree\">"+
+                                    "<div class=\"panel-body\">"+
+                                      "Prom. Promedios Ponderados: "+fo_sumary.fv_13+
+                                    "</div>"+
+                                  "</div>"+
+                                "</div>"+
+                                "<div class=\"panel panel-default\">"+
+                                  "<div class=\"panel-heading\" role=\"tab\" id=\"headingThree\">"+
+                                    "<h4 class=\"panel-title\">"+
+                                      "<a class=\"collapsed\" role=\"button\" data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapseThree\" aria-expanded=\"false\" aria-controls=\"collapseThree\">"+
+                                        //14, 15 y 16
+                                        "Asignaturas Tipo A"+
+                                      "</a>"+
+                                    "</h4>"+
+                                  "</div>"+
+                                  "<div id=\"collapseThree\" class=\"panel-collapse collapse\" role=\"tabpanel\" aria-labelledby=\"headingThree\">"+
+                                    "<div class=\"panel-body\">"+
+                                      "Asignaturas Tipo A: "+fo_sumary.fv_14+" - Total Creditos:"+fo_sumary.fv_15+" - Promedio Creditos: "+fo_sumary.fv_16+
+                                    "</div>"+
+                                  "</div>"+
+                                "</div>"+
+                                "<div class=\"panel panel-default\">"+
+                                  "<div class=\"panel-heading\" role=\"tab\" id=\"headingThree\">"+
+                                    "<h4 class=\"panel-title\">"+
+                                      "<a class=\"collapsed\" role=\"button\" data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapseThree\" aria-expanded=\"false\" aria-controls=\"collapseThree\">"+
+                                        //17, 18 y 19
+                                        "Asignaturas Tipo B"+
+                                      "</a>"+
+                                    "</h4>"+
+                                  "</div>"+
+                                  "<div id=\"collapseThree\" class=\"panel-collapse collapse\" role=\"tabpanel\" aria-labelledby=\"headingThree\">"+
+                                    "<div class=\"panel-body\">"+
+                                      "Asignaturas Tipo B: "+fo_sumary.fv_17+" - Total Creditos:"+fo_sumary.fv_18+" - Promedio Creditos: "+fo_sumary.fv_19+
+                                    "</div>"+
+                                  "</div>"+
+                                "</div>"+
+                                "<div class=\"panel panel-default\">"+
+                                  "<div class=\"panel-heading\" role=\"tab\" id=\"headingThree\">"+
+                                    "<h4 class=\"panel-title\">"+
+                                      "<a class=\"collapsed\" role=\"button\" data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapseThree\" aria-expanded=\"false\" aria-controls=\"collapseThree\">"+
+                                        //20, 21, 22, 23
+                                        "Suma de Rangos de Promedios Ponderados"+
+                                      "</a>"+
+                                    "</h4>"+
+                                  "</div>"+
+                                  "<div id=\"collapseThree\" class=\"panel-collapse collapse\" role=\"tabpanel\" aria-labelledby=\"headingThree\">"+
+                                    "<div class=\"panel-body\">"+
+                                      "Prom. Ponderado <2: "+fo_sumary.fv_20+" - >=2 y <3:"+fo_sumary.fv_21+" - >=3 y <4: "+fo_sumary.fv_22+" - >=4 y <=5: "+fo_sumary.fv_23+
+                                    "</div>"+
+                                  "</div>"+
+                                "</div>"+
+                                "<div class=\"panel panel-default\">"+
+                                  "<div class=\"panel-heading\" role=\"tab\" id=\"headingThree\">"+
+                                    "<h4 class=\"panel-title\">"+
+                                      "<a class=\"collapsed\" role=\"button\" data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapseThree\" aria-expanded=\"false\" aria-controls=\"collapseThree\">"+
+                                        //24
+                                        "Rango de suma de Promedios Ponderados mas Alto"+
+                                      "</a>"+
+                                    "</h4>"+
+                                  "</div>"+
+                                  "<div id=\"collapseThree\" class=\"panel-collapse collapse\" role=\"tabpanel\" aria-labelledby=\"headingThree\">"+
+                                    "<div class=\"panel-body\">"+
+                                      "Rango: ";
+                                        if ( fo_sumary.fv_24[1]==1 ){
+                                            fg_http_response = fg_http_response + "<2";
+                                        } else if ( fo_sumary.fv_24[1]==2 ) {
+                                            fg_http_response = fg_http_response + ">=2 y <3";
+                                        } else if ( fo_sumary.fv_24[1]==3 ) {
+                                            fg_http_response = fg_http_response + ">=3 y <4";
+                                        } else if ( fo_sumary.fv_24[1]==4 ) {
+                                            fg_http_response = fg_http_response + ">=4 y <=5";
+                                        }
+                                      fg_http_response = fg_http_response + " - Total Estudiantes:"+fo_sumary.fv_24[0]+
+                                    "</div>"+
+                                  "</div>"+
+                                "</div>"+
+                                "<div class=\"panel panel-default\">"+
+                                  "<div class=\"panel-heading\" role=\"tab\" id=\"headingThree\">"+
+                                    "<h4 class=\"panel-title\">"+
+                                      "<a class=\"collapsed\" role=\"button\" data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapseThree\" aria-expanded=\"false\" aria-controls=\"collapseThree\">"+
+                                        //25
+                                        "Promedio de los Rangos de Promedios Ponderados"+
+                                      "</a>"+
+                                    "</h4>"+
+                                  "</div>"+
+                                  "<div id=\"collapseThree\" class=\"panel-collapse collapse\" role=\"tabpanel\" aria-labelledby=\"headingThree\">"+
+                                    "<div class=\"panel-body\">"+
+                                      "Prom. Prom. Ponderado <2: "+fo_sumary.fv_25[0]+" - >=2 y <3:"+fo_sumary.fv_25[1]+" - >=3 y <4: "+fo_sumary.fv_25[2]+" - >=4 y <=5: "+fo_sumary.fv_25[3]+
+                                    "</div>"+
+                                  "</div>"+
+                                "</div>"+
+                                "<div class=\"panel panel-default\">"+
+                                  "<div class=\"panel-heading\" role=\"tab\" id=\"headingThree\">"+
+                                    "<h4 class=\"panel-title\">"+
+                                      "<a class=\"collapsed\" role=\"button\" data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapseThree\" aria-expanded=\"false\" aria-controls=\"collapseThree\">"+
+                                        //26
+                                        "Promedio general de Definitivas"+
+                                      "</a>"+
+                                    "</h4>"+
+                                  "</div>"+
+                                  "<div id=\"collapseThree\" class=\"panel-collapse collapse\" role=\"tabpanel\" aria-labelledby=\"headingThree\">"+
+                                    "<div class=\"panel-body\">"+
+                                      "Prom. General Def.: "+fo_sumary.fv_26+
+                                    "</div>"+
+                                  "</div>"+
+                                "</div>"+
+                                "<div class=\"panel panel-default\">"+
+                                  "<div class=\"panel-heading\" role=\"tab\" id=\"headingThree\">"+
+                                    "<h4 class=\"panel-title\">"+
+                                      "<a class=\"collapsed\" role=\"button\" data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapseThree\" aria-expanded=\"false\" aria-controls=\"collapseThree\">"+
+                                        //27
+                                        "Asignatura con Mayor numero de Creditos"+
+                                      "</a>"+
+                                    "</h4>"+
+                                  "</div>"+
+                                  "<div id=\"collapseThree\" class=\"panel-collapse collapse\" role=\"tabpanel\" aria-labelledby=\"headingThree\">"+
+                                    "<div class=\"panel-body\">"+
+                                      "Asignatura: "+fo_pass_pensum.fm_search_asig_name_by_cod(fo_sumary.fv_27[1])+" - Creditos: "+fo_sumary.fv_27[0]+
+                                    "</div>"+
+                                  "</div>"+
+                                "</div>"+
+                                "<div class=\"panel panel-default\">"+
+                                  "<div class=\"panel-heading\" role=\"tab\" id=\"headingThree\">"+
+                                    "<h4 class=\"panel-title\">"+
+                                      "<a class=\"collapsed\" role=\"button\" data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapseThree\" aria-expanded=\"false\" aria-controls=\"collapseThree\">"+
+                                        //28
+                                        "Asignatura con Menor numero de Creditos"+
+                                      "</a>"+
+                                    "</h4>"+
+                                  "</div>"+
+                                  "<div id=\"collapseThree\" class=\"panel-collapse collapse\" role=\"tabpanel\" aria-labelledby=\"headingThree\">"+
+                                    "<div class=\"panel-body\">"+
+                                      "Asignatura: "+fo_pass_pensum.fm_search_asig_name_by_cod(fo_sumary.fv_28[1])+" - Creditos: "+fo_sumary.fv_28[0]+
+                                    "</div>"+
+                                  "</div>"+
+                                "</div>"+
+                            "</div>"+
+                            /*Fin Tabulador 2*/
+                          "</div>"+
+                          "<div role=\"tabpanel\" class=\"tab-pane fade\" id=\"student\">";
+                            /*Inicio Tabulador 3*/
+                        for ( int i=0;i<fpass_num_estd;i++ ){
+                            fg_http_response = fg_http_response + "<div class=\"panel panel-default\">"+
+                                "<div class=\"panel-heading\" role=\"tab\" id=\"headingThree\">"+
+                                  "<h4 class=\"panel-title\">"+
+                                    "<a class=\"collapsed\" role=\"button\" data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapseThree\" aria-expanded=\"false\" aria-controls=\"collapseThree\">"+
+                                      //29
+                                      "Estudiante "+i+": "+fo_pass_estudiante.fv_estd_string[0]+
+                                    "</a>"+
+                                  "</h4>"+
+                                "</div>"+
+                                "<div id=\"collapseThree\" class=\"panel-collapse collapse\" role=\"tabpanel\" aria-labelledby=\"headingThree\">"+
+                                  "<div class=\"panel-body\">"+
+                                    "Proporcion de Creditos>> T: "+fo_sumary.fv_29[0][i]+" - T/P: "+fo_sumary.fv_29[1][i]+"\n"+
+                                    "Suma Asignaturas>> Creditos <3: "+fo_sumary.fv_29[2][i]+" - >=3: "+fo_sumary.fv_29[3][i]+"\n"+
+                                    "Suma Asignaturas>> Def. <2: "+fo_sumary.fv_29[4][i]+" - >=2 y <3: "+fo_sumary.fv_29[5][i]+" - >=3 y <4: "+fo_sumary.fv_29[6][i]+" - >=4 y <=5: "+fo_sumary.fv_29[7][i]+"\n"+
+                                    "Suma Horas>> T: "+fo_sumary.fv_29[8][i]+" - T/P: "+fo_sumary.fv_29[9][i]+"\n"+
+                                    "Suma Calificaciones>> <3: "+fo_sumary.fv_29[11][i]+" - >=3: "+fo_sumary.fv_29[10][i]+
+                                  "</div>"+
+                                "</div>"+
+                            "</div>";   
+                        }          
+                            /*Fin Tabulador 2*/                  
+                          fg_http_response = fg_http_response + "</div>"+
+                          "<div role=\"tabpanel\" class=\"tab-pane fade\" id=\"configuration\">"+
+                          /*Inicio Tabulador 3*/
+                            "<div class=\"panel-group\" id=\"accordion\" role=\"tablist\" aria-multiselectable=\"true\">"+
+                                "<div class=\"panel panel-default\">"+
+                                  "<div class=\"panel-heading\" role=\"tab\" id=\"headingOne\">"+
+                                    "<h4 class=\"panel-title\">"+
+                                      "<a role=\"button\" data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapseOne\" aria-expanded=\"true\" aria-controls=\"collapseOne\">"+
+                                        "Resetear Todas las Estadisticas y Reiniciar el Programa"+
+                                      "</a>"+
+                                    "</h4>"+
+                                  "</div>"+
+                                  "<div id=\"collapseOne\" class=\"panel-collapse collapse in\" role=\"tabpanel\" aria-labelledby=\"headingOne\">"+
+                                    "<div class=\"panel-body\">"+
+                                      "<div class=\"col-xs-12\""+
+                                        "<form class=\"init-form\" method=\"POST\" action=\"start\">"+
+                                            "<input type=\"hidden\" name=\"fform_begin\" value=\"reset\">"+
+                                            "<div class=\"panel panel-danger panel-body red\">"+
+                                                "<p class=\"tight\"><i class=\"fa fa-asterisk\"></i>Si desea borrar todos los datos y reiniciar el programa haga click aqui.<p>"+
+                                            "</div>"+
+                                            "<div class=\"btns\">"+
+                                                "<div class=\"btn btn-cta-primary center-block\">"+
+                                                    "<input class=\"btn-clear\" type=\"submit\" value=\"REINICIAR PROGRAMA\">"+
+                                                "</div>"+
+                                            "</div> "+ 
+                                        "</form>"+
+                                      "</div>"+
+                                    "</div>"+
+                                  "</div>"+
+                                "</div>"+
+                            "</div>"+
+                          /*Fin Tabulador 3*/        
+                          "</div>"+
+                        "</div>"+
+                      "</div>" +
+                "</div>";
+            request.setAttribute("fg_http_response",fg_http_response);
             fm_forward(url,request,response);
-        }
+        } /*else if ( ("activated".equals(fo_session.getAttribute("fg_session_started"))) && ("reset".equals(fv_return_path)) ){
+            url = "/index.jsp";
+            fg_session_started = "reseted";
+            fo_session.setAttribute("fg_session_started", fg_session_started);
+            fm_forward(url,request,response);
+        }*/
     }
     
     public void fm_forward (String fv_forward_url,HttpServletRequest request, HttpServletResponse response)

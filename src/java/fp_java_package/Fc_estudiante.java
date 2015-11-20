@@ -65,4 +65,16 @@ public class Fc_estudiante {
         this.fv_estd_string = new String[2][farg_num_estd];
         
     }
+    String fm_search_stud_nom_by_cod ( int farg_stud_to_search, Fc_estudiante fo_estudiante ){
+        String fv_result="";
+        int fv_temp=0;
+        for ( int i=0;i<fo_estudiante.fv_estd[0].length;i++ ){
+            if ( farg_stud_to_search==fo_estudiante.fv_estd[0][i]){
+                fv_temp=i;
+                i=57;
+            }
+        }
+        fv_result = fo_estudiante.fv_estd_string[0][fv_temp];
+        return fv_result;
+    }
 }

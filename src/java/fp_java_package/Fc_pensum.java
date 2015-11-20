@@ -311,7 +311,7 @@ public class Fc_pensum {
         return fv_result;
     }
     
-        int fm_search_asig_cred_by_cod ( int farg_asig_to_search ){
+    int fm_search_asig_cred_by_cod ( int farg_asig_to_search ){
         int fv_result=0;
         for ( int i=0;i<57;i++ ){
             if ( farg_asig_to_search==this.fv_pensum[0][i]){
@@ -319,6 +319,48 @@ public class Fc_pensum {
                 i=57;
             }
         }
+        return fv_result;
+    }
+    int fm_search_asig_type_by_cod ( int farg_asig_to_search ){
+        int fv_result=0;
+        for ( int i=0;i<57;i++ ){
+            if ( farg_asig_to_search==this.fv_pensum[0][i]){
+                fv_result=this.fv_pensum[2][i];
+                i=57;
+            }
+        }
+        return fv_result;
+    }
+    int fm_search_asig_ht_by_cod ( int farg_asig_to_search ){
+        int fv_result=0;
+        for ( int i=0;i<57;i++ ){
+            if ( farg_asig_to_search==this.fv_pensum[0][i]){
+                fv_result=this.fv_pensum[3][i];
+                i=57;
+            }
+        }
+        return fv_result;
+    }
+    int fm_search_asig_hp_by_cod ( int farg_asig_to_search ){
+        int fv_result=0;
+        for ( int i=0;i<57;i++ ){
+            if ( farg_asig_to_search==this.fv_pensum[0][i]){
+                fv_result=this.fv_pensum[4][i];
+                i=57;
+            }
+        }
+        return fv_result;
+    }
+    String fm_search_asig_name_by_cod ( int farg_asig_to_search ){
+        String fv_result="";
+        int fv_temp=0;
+        for ( int i=0;i<57;i++ ){
+            if ( farg_asig_to_search==this.fv_pensum[0][i]){
+                fv_temp=i;
+                i=57;
+            }
+        }
+        fv_result = this.fv_pensum_desc[0][fv_temp];
         return fv_result;
     }
 }

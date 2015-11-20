@@ -26,6 +26,7 @@
                         <div class="panel panel-danger panel-body red">
                             <p class="tight">Los campos con <i class="fa fa-asterisk"></i> son obligatorios.<p>
                         </div>
+                        
                         <%
                             out.println( request.getAttribute("fg_http_response") );
                             out.println( "\n" );
