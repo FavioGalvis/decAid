@@ -153,12 +153,12 @@ public class Fc_layout {
             "                </div><!--//navbar-header-->\n" +
             "                <div class=\"navbar-collapse collapse\" id=\"navbar-collapse\">\n" +
             "                    <ul class=\"nav navbar-nav\">\n" +
-            "                        <li class=\"active nav-item sr-only\"><a class=\"scrollto\" href=\"#promo\">Inicio</a></li>\n" +
-            "                        <li class=\"nav-item\"><a class=\"scrollto\" href=\"#about\">Acerca de</a></li>\n" +
-            "                        <li class=\"nav-item\"><a class=\"scrollto\" href=\"#features\">Funciones</a></li>\n" +
-            "                        <li class=\"nav-item\"><a class=\"scrollto\" href=\"#docs\">Documentacion</a></li>\n" +
-            "                        <li class=\"nav-item\"><a class=\"scrollto\" href=\"#license\">Licencia</a></li>\n" +
-            "                        <li class=\"nav-item last\"><a class=\"scrollto\" href=\"#contact\">Contacto</a></li>\n" +
+            "                        <li class=\"active nav-item sr-only\"><a class=\"\" href=\"/decAid/index.jsp#promo\">Inicio</a></li>\n" +
+            "                        <li class=\"nav-item\"><a class=\"\" href=\"/decAid/index.jsp#about\">Acerca de</a></li>\n" +
+            "                        <li class=\"nav-item\"><a class=\"\" href=\"/decAid/index.jsp#features\">Funciones</a></li>\n" +
+            "                        <li class=\"nav-item\"><a class=\"\" href=\"/decAid/index.jsp#docs\">Documentacion</a></li>\n" +
+            "                        <li class=\"nav-item\"><a class=\"\" href=\"/decAid/index.jsp#license\">Licencia</a></li>\n" +
+            "                        <li class=\"nav-item last\"><a class=\"\" href=\"/decAid/index.jsp#contact\">Contacto</a></li>\n" +
             "                    </ul><!--//nav-->\n" +
             "                </div><!--//navabr-collapse-->\n" +
             "            </nav><!--//main-nav-->\n" +
