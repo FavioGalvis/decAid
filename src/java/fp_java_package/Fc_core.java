@@ -50,39 +50,6 @@ public class Fc_core extends HttpServlet {
      * @throws ServletException
      * @throws IOException
      */
-    /*@Override
-    protected void doPost (HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        Fc_core clase = new Fc_core();
-        String fv_return_path = request.getParameter("start");
-        String d = request.getParameter("b");
-        String fv_forward_url = "/index.jsp";
-        String e="";
-        try {
-            e = clase.main(Integer.parseInt(d));
-        } catch ( NumberFormatException f ) {
-            e = "24";
-        }
-        if ( fv_return_path != null) {
-            request.setAttribute("fv_return_path", fv_return_path);
-            request.setAttribute("b", e);
-        }
-
-        Fc_pensum aaa = new Fc_pensum(); 
-        HttpSession abc = request.getSession();
-        abc.setAttribute("pensum", aaa);
-
-        ServletContext fv_sc = getServletContext();
-        RequestDispatcher fv_rd = fv_sc.getRequestDispatcher(fv_forward_url);
-        fv_rd.forward(request, response);
-    }*/
-    /**
-     *
-     * @param request
-     * @param response
-     * @throws ServletException
-     * @throws IOException
-     */
     @Override
     protected void doPost (HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
